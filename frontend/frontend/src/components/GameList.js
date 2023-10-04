@@ -7,53 +7,49 @@ export default function GameList() {//{ preferences }
     const [games, setGames] = useState([]);
     const navigate = useNavigate();
 
-    // useEffect(() => {
-    //     fetch(`https://api.rawg.io/api/games?key=${process.env.REACT_APP_GAME_FINDER_API_KEY}`)
-    //         .then(res => {
-    //             if (res.ok) {
-    //                 return res.json();
-    //             } else if (res.status >= 500) {
-    //                 return res
-    //                     .json()
-    //                     .then(error =>
-    //                         Promise.reject(new Error(error.message))
-    //                     );
-    //             } else {
-    //                 // All other errors
-    //                 return Promise.reject(
-    //                     new Error(`Unexpected status code ${res.status}`)
-    //                 );
-    //             }
-    //         })
-    //         .then(data => {
-    //             setGames(data);
-    //         })
-    //         .catch(error => {
-    //              console.error(error); // Log for debugging
-    //         });
-    // }, []);
-
+    useEffect(() => {
+        fetch(`https://api.rawg.io/api/games?key=${REACT_APP_GAME_FINDER_API_KEY}`)
+            .then(res => {
+                if (res.ok) {
+                    return res.json();
+                } else if (res.status >= 500) {
+                    return res
+                        .json()
+                        .then(error =>
+                            Promise.reject(new Error(error.message))
+                        );
+                } else {
+                    // All other errors
+                    return Promise.reject(
+                        new Error(`Unexpected status code ${res.status}`)
+                    );
+                }
+            })
+            .then(data => {
+                setGames(data.results);
+            })
+            .catch(error => {
+                console.error(error); // Log for debugging
+            });
+    }, []);
+    console.log(games);
 
     return (
         <>
+
             <div>
                 <h1>List/table of game data</h1>
                 <table>
-                <TableHead
-					headers={['Name', 'Platforms', 'Genres', 'Release Date', 'MetaCritic Rating', 'ESRB Rating']}
-				/>
+                    <TableHead
+                        headers={['Name', 'Platforms', 'Genres', 'Release Date', 'MetaCritic Rating', 'ESRB Rating']}
+                    />
                     <tbody>
-                        <tr>
-                        <td>Pokemon</td>
-                        <td>Switch</td>
-                        <td>Fantasy</td>
-                        <td>2023</td>
-                        <td>99</td>
-                        <td>E</td>
-                        </tr>
-                        {/* {games.map(game=>(
-                            <GameRow game={game} key={game.id}/>
-                        ))} */}
+                        {games.map((game) => (
+                            <GameRow
+                                key={game.id}
+                                game={game} // Pass the whole game object to the GameRow component
+                            />
+                        ))}
                     </tbody>
                 </table>
             </div>
