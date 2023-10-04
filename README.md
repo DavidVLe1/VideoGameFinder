@@ -26,6 +26,7 @@ mapper
 
 read only ... 
 
+Version -1 testbacked with our own SQL
 
 Keep version 0 simple - we can always add stuff to it.
 Form that will get the genre etc
@@ -36,3 +37,25 @@ Version 2 - store past games you have played - to get a genre, publisher prefere
 
 Front end framework - 
 
+Backend:
+
+Controller 
+Online
+     - Getting VideoGame By Publisher
+     - Getting All VideoGames
+     - Getting VideoGames By Genre
+     - Getting VideoGame By UserId
+     - Getting VideoGame By PublishedYear
+Local
+     - POst User by UserId
+     - Post VideoGamesViewed By UserId
+     - Put VideoGamesViewed By UserId
+     - Delete user
+     - delete VideoGamesViewed By the User
+     - View RecommendedTitles By UserId
+     - Delete RecommendedTities By UserId
+Model
+Data (calls to the online DB)
+Domain
+
+FrontEnd:
