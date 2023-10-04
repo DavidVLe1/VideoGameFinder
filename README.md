@@ -59,3 +59,14 @@ Data (calls to the online DB)
 Domain
 
 FrontEnd:
+
+
+Two Architectures - we are selecting the second
+
+Architecture 1 is REACT -> JAVA -->(Online, MySQL)
+Architecture 2 is React -> (Online, (JAVA, MySQL))
+
+All user specific data will be in MySQL
+Online is only fetches - and we can refine the fetch based on User input and MySQL profiles/ past history
+
+
