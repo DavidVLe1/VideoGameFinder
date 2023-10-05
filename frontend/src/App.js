@@ -5,7 +5,8 @@ import GameForm from './components/GameForm';
 import Landing from "./components/Landing";
 import SignIn from "./components/SignIn";
 import ErrorPage from "./components/ErrorPage";
-import SignUp from "./components/SignUp"
+import SignUp from "./components/SignUp";
+import Profile from "./components/Profile";
 
 
 import './App.css';
