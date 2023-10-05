@@ -70,3 +70,7 @@ All user specific data will be in MySQL
 Online is only fetches - and we can refine the fetch based on User input and MySQL profiles/ past history
 
 
+![image](https://github.com/LoganHajdukiewicz/VideoGameFinder/assets/33878973/afa56138-7f18-4485-9aab-036aed0b429d)
+
+
+
