@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function PlatformList() {
+export default function PlatformList({handleChange}) {
     const [platforms, setPlatforms] = useState([]);
     const navigate = useNavigate();
 
@@ -31,7 +31,7 @@ export default function PlatformList() {
                 navigate('/error', { state: { error } });
             });
     }, []); // This happens every time the component is mounted
-    console.log(platforms);
+    // console.log(platforms);
     return (
         <>
             <label htmlFor="platform" className="form-label">
@@ -41,6 +41,7 @@ export default function PlatformList() {
                 // multiple
                 name="platforms"
                 id="platforms"
+                onChange={handleChange}
                 className="form-select">
                 <option value='' disabled>
                     [Select Platforms]

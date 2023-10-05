@@ -2,11 +2,14 @@ import { useEffect, useReducer, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import TableHead from "./TableHead";
 import GameRow from "./GameRow";
+import GameForm from "./GameForm";
+import { useLocation } from "react-router-dom";
 
 export default function GameList() {//{ preferences }
     const apiKey = process.env.REACT_APP_GAME_FINDER_API_KEY;
     const [games, setGames] = useState([]);
     const navigate = useNavigate();
+
 
     useEffect(() => {
         fetch(`https://api.rawg.io/api/games?key=${apiKey}`)
@@ -33,7 +36,7 @@ export default function GameList() {//{ preferences }
                 console.error(error); // Log for debugging
             });
     }, []);
-    console.log(games);
+    // console.log(games);
 
     return (
         <>

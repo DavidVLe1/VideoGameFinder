@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function GenreList() {
+export default function GenreList({handleChange}) {
     const [genres, setGenres] = useState([]);
     const navigate = useNavigate();
 
@@ -31,7 +31,7 @@ export default function GenreList() {
                 navigate('/error', { state: { error } });
             });
     }, []); // This happens every time the component is mounted
-    console.log(genres);
+    // console.log(genres);
     return (
         <>
             <label htmlFor="genre" className="form-label">
@@ -40,6 +40,7 @@ export default function GenreList() {
             <select
                 name="genres"
                 id="genres"
+                onChange={handleChange}
                 className="form-select">
                 <option value='' disabled>
                     [Select Genres]
