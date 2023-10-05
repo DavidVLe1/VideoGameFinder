@@ -9,8 +9,11 @@ function App() {
       <Router>
         <Header/>
         <Routes>
-          <Route path='/' element={<GameList/>}></Route>
-          <Route path='/' element={<GameForm/>}></Route> 
+          <Route path='/' element={<Landing/>}></Route>
+          <Route path='/login' element={<SignIn/>}></Route>
+          <Route path='/results' element={<GameList/>}></Route>
+          <Route path='/preferences' element={<GameForm/>}></Route>
+          <Route path='/*' element={<ErrorPage/>}></Route>
         </Routes>
       </Router>  
   );
