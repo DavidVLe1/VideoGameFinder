@@ -4,17 +4,17 @@ import { Link } from "react-router-dom";
 export default function Landing() {
   return (
     <div className="homepage" style={{ font: "vt323" }}>
-      <header style={{ backgroundColor: "#333", color: "#fff", padding: "20px" }}>
+      <header style={{ backgroundColor: "#bb0a21", color: "#D3D4D9", padding: "20px" }}>
         <h1>Welcome to VideoGameFinder</h1>
         <p>Discover your next favorite video game</p>
       </header>
 
-      <section className="cta-section" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "40px 20px" }}>
+      <section className="cta-section" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", backgroundColor: "#2e282a", padding: "40px 20px" }}>
         <div className="cta-content" style={{ flex: 1 }}>
-        <Link to="/profile" style={{ color: "black" }}>
+        <Link to="/profile" style={{ color: "#D3D4D9" }}>
             <h2>Track Your Games</h2>
           </Link>
-          <p>
+          <p style={{ color: "#D3D4D9" }}>
             Keep a record of the video games you've played. Rate and review
             them to get personalized recommendations.
           </p>
@@ -24,22 +24,22 @@ export default function Landing() {
         </div>
       </section>
 
-      <section className="cta-section reverse" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", backgroundColor: "#f4f4f4", padding: "40px 20px" }}>
+      <section className="cta-section reverse" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", backgroundColor: "#067BC2", padding: "40px 20px" }}>
         <div className="cta-image" style={{ flex: 1, textAlign: "center" }}>
           <img src="https://media.gq-magazine.co.uk/photos/645b5c3c8223a5c3801b8b26/16:9/w_2240,c_limit/100-best-games-hp-b.jpg" alt="Game Recommendations" style={{ maxWidth: "70%", height: "auto" }} />
         </div>
         <div className="cta-content" style={{ flex: 1 }}>
-          <Link to="/preferences" style={{ color: "black" }}>
+          <Link to="/preferences" style={{ color: "#D3D4D9" }}>
             <h2>Get Game Recommendations</h2>
           </Link>
-          <p>
+          <p style={{ color: "#D3D4D9" }}>
             Based on your gaming history and preferences, we'll recommend
             awesome games you haven't played yet.
           </p>
         </div>
       </section>
 
-      <section className="get-started-section" style={{ backgroundColor: "#333", color: "#fff", padding: "40px 20px", textAlign: "center" }}>
+      <section className="get-started-section" style={{ backgroundColor: "#2e282a", color: "#D3D4D9", padding: "15px 20px", textAlign: "center" }}>
         <h2>Ready to Get Started?</h2>
         <p>
           Sign up now to start tracking your games, receiving recommendations,
@@ -50,8 +50,8 @@ export default function Landing() {
         </Link>
       </section>
 
-      <footer style={{ backgroundColor: "#333", color: "#fff", textAlign: "center", padding: "10px 0" }}>
-        <p>&copy; 2023 VideoGameFinder. All rights reserved.</p>
+      <footer style={{ backgroundColor: "#2e282a", color: "#D3D4D9", textAlign: "center", padding: "10px 0" }}>
+        <p>&copy; 2023 Video Game Finder</p>
       </footer>
     </div>
   );
