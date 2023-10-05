@@ -8,6 +8,11 @@ create table genre (
     genre_name varchar(200) not null
 );
 
+create table platform (
+    platform_id int primary key,
+    platform_name varchar(200) not null
+);
+
 insert into genre(genre_id, genre_name) values
         (4, 'Action'),
         (51, 'Indie'),
@@ -29,28 +34,28 @@ insert into genre(genre_id, genre_name) values
 	(34, 'Educational'),
 	(17, 'Card');
 
-	
--- "PC: 4
--- PlayStation 5: 187
--- Xbox One: 1
--- PlayStation 4: 18
--- Xbox Series S/X: 186
--- Nintendo Switch: 7
--- iOS: 3
--- Android: 21
--- Nintendo 3DS: 8
--- Nintendo DS: 9
--- Nintendo DSi: 13
--- macOS: 5
--- Linux: 6
--- Xbox 360: 14
--- Xbox: 80
--- PlayStation 3: 16
--- PlayStation 2: 15
--- PlayStation: 27
--- PS Vita: 19
--- PSP: 17
--- Wii U: 10
+insert into platform(platform_id, platform_name) values
+	(4, 'PC'),
+	(187, 'PlayStation 5'),
+	(1, 'Xbox One'),
+    (18, 'PlayStation 4'),
+	(186, 'Xbox Series S/X'),
+    (7, 'Nintendo Switch'),
+    (3, 'iOS'),
+    (21, 'Android'),
+    (8, 'Nintendo 3DS'),
+    (9, 'Nintendo DS'),
+    (13, 'Nintendo DSi'),
+    (5, 'macOS'),
+    (6, 'Linux'),
+	(14, 'Xbox 360'),
+	(80, 'Xbox'),
+    (16, 'PlayStation 3'),
+    (15, 'PlayStation 2'),
+    (27, 'PlayStation'),
+    (19,' PS Vita'),
+    (17, 'PSP'),
+    (10, 'Wii U');
 -- Wii: 11
 -- GameCube: 105
 -- Nintendo 64: 83

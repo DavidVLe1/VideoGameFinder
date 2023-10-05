@@ -1,0 +1,9 @@
+@url = http://localhost:8080/api/platform
+
+GET {{url}} HTTP/1.1
+
+###
+
+GET {{url}}/5 HTTP/1.1
+
+###
