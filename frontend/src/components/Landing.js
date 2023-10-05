@@ -24,7 +24,7 @@ export default function Landing() {
         </div>
       </section>
 
-      <section className="cta-section reverse" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", backgroundColor: "#4b88a2", padding: "40px 20px" }}>
+      <section className="cta-section reverse" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", backgroundColor: "#067BC2", padding: "40px 20px" }}>
         <div className="cta-image" style={{ flex: 1, textAlign: "center" }}>
           <img src="https://media.gq-magazine.co.uk/photos/645b5c3c8223a5c3801b8b26/16:9/w_2240,c_limit/100-best-games-hp-b.jpg" alt="Game Recommendations" style={{ maxWidth: "70%", height: "auto" }} />
         </div>
