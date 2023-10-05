@@ -99,4 +99,4 @@ Fetch Query Addition
 User Sign In 
 
 Any blockers? 
-![image](https://github.com/LoganHajdukiewicz/VideoGameFinder/assets/33878973/9298f596-e024-471a-8fae-0671d1e913cd)
+
