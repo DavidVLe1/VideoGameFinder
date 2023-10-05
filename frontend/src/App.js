@@ -19,6 +19,7 @@ function App() {
           <Route path='/signin' element={<SignIn/>}></Route>
           <Route path='/signup' element={<SignUp/>}></Route>
           <Route path='/results' element={<GameList/>}></Route>
+          <Route path='/profile' element={<Profile/>}></Route>
           <Route path='/preferences' element={<GameForm/>}></Route>
           <Route path='/*' element={<ErrorPage/>}></Route>
         </Routes>
