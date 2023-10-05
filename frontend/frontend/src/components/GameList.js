@@ -4,11 +4,12 @@ import TableHead from "./TableHead";
 import GameRow from "./GameRow";
 
 export default function GameList() {//{ preferences }
+    const apiKey = process.env.REACT_APP_GAME_FINDER_API_KEY;
     const [games, setGames] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`https://api.rawg.io/api/games?key=${REACT_APP_GAME_FINDER_API_KEY}`)
+        fetch(`https://api.rawg.io/api/games?key=${apiKey}`)
             .then(res => {
                 if (res.ok) {
                     return res.json();
