@@ -5,7 +5,8 @@ import GameForm from './components/GameForm';
 import Landing from "./components/Landing";
 import SignIn from "./components/SignIn";
 import ErrorPage from "./components/ErrorPage";
-import SignUp from "./components/SignUp"
+import SignUp from "./components/SignUp";
+import Profile from "./components/Profile";
 
 
 import './App.css';
@@ -19,6 +20,7 @@ function App() {
           <Route path='/signin' element={<SignIn/>}></Route>
           <Route path='/signup' element={<SignUp/>}></Route>
           <Route path='/results' element={<GameList/>}></Route>
+          <Route path='/profile' element={<Profile/>}></Route>
           <Route path='/preferences' element={<GameForm/>}></Route>
           <Route path='/*' element={<ErrorPage/>}></Route>
         </Routes>

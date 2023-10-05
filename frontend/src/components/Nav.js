@@ -46,6 +46,11 @@ export default function Nav() {
                 Sign in
               </NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink className="nav-link vt323-font" to="/profile">
+                Profile
+              </NavLink>
+            </li>
           </ul>
         </div>
       </div>
