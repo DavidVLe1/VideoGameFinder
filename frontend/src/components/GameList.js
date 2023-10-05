@@ -9,7 +9,9 @@ export default function GameList() {//{ preferences }
     const apiKey = process.env.REACT_APP_GAME_FINDER_API_KEY;
     const [games, setGames] = useState([]);
     const navigate = useNavigate();
-
+    const { state } = useLocation();
+    const formData = state?.formData || {};
+    // console.log("This is the game Data: ", formData);
 
     useEffect(() => {
         fetch(`https://api.rawg.io/api/games?key=${apiKey}`)
