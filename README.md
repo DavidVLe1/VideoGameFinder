@@ -70,8 +70,33 @@ All user specific data will be in MySQL
 Online is only fetches - and we can refine the fetch based on User input and MySQL profiles/ past history
 
 
-![image](https://github.com/LoganHajdukiewicz/VideoGameFinder/assets/33878973/afa56138-7f18-4485-9aab-036aed0b429d)
-
 
 ![image](https://github.com/LoganHajdukiewicz/VideoGameFinder/assets/33878973/20415de0-a8f7-4e8d-b7a8-bc8c4a8814be)
 
+![image](https://github.com/LoganHajdukiewicz/VideoGameFinder/assets/33878973/c031def4-35cb-45f2-b0a2-5b4589dc9ee4)
+
+![image](https://github.com/LoganHajdukiewicz/VideoGameFinder/assets/33878973/afc07f1b-df60-4b2d-b83d-2e5e81400d5a)
+
+Question 1: What did you get done yesterday? 
+ React Table 
+ Populated with Fetch from “Online Gaming API”
+
+ Java/ MySQL Get from DB for Genre (.findAll and .findById)
+
+ Template for Version 0.
+
+
+
+Question 2: Did you get the things done that you wanted to? 
+We are on track to have an operational version by tomorrow lunch
+
+Question 3: What are you going to do today? 
+Forms Done
+React App 
+UI – Tailwind/ Bootstrap
+Backend Tables and Java Pullup
+Fetch Query Addition
+User Sign In 
+
+Any blockers? 
+![image](https://github.com/LoganHajdukiewicz/VideoGameFinder/assets/33878973/9298f596-e024-471a-8fae-0671d1e913cd)
