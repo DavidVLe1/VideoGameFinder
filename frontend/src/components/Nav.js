@@ -20,13 +20,13 @@ export default function Nav() {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/">
+              <NavLink className="nav-link" to="/signup">
                 Sign Up
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/">
-                Log In
+              <NavLink className="nav-link" to="/signin">
+                Sign in
               </NavLink>
             </li>
           </ul>
