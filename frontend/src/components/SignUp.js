@@ -6,7 +6,7 @@ export default function SignUp() {
     firstName: "",
     lastName: "",
     email: "",
-    password: ""
+    passwd: ""
   });
 
   const handleChange = (event) => {
@@ -14,11 +14,31 @@ export default function SignUp() {
     setSignUpFormData({ ...signUpFormData, [name]: value });
   };
 
-  const handleSubmit = (event) => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
     console.log("Form Data:", signUpFormData);
-    //attempt to sign up user---attempt to create user on the backend.
-    //if failure let user know that they were unable to sign up. and maybe list reasons why.
+  
+    try {
+      const response = await fetch("http://localhost:8080/api/user", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(signUpFormData),
+      });
+  
+      if (response.ok) {
+        setIsAuthenticated(true);
+        console.log("Registration Successful");
+      } else {
+        const errorData = await response.json();
+        console.error("Registration failed:", errorData);
+      }
+    } catch (error) {
+      console.error("An error occurred:", error);
+    }
   };
 
   return (
@@ -68,15 +88,15 @@ export default function SignUp() {
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="password" className="form-label">
+          <label htmlFor="passwd" className="form-label">
             Password
           </label>
           <input
-            type="password"
+            type="passwd"
             className="form-control"
-            id="password"
-            name="password"
-            value={signUpFormData.password}
+            id="passwd"
+            name="passwd"
+            value={signUpFormData.passwd}
             onChange={handleChange}
             required
           />
