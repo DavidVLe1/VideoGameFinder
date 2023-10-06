@@ -3,15 +3,16 @@ import { Link } from "react-router-dom";
 
 export default function Landing() {
   return (
-    <div className="homepage" style={{ font: "vt323" }}>
-      <header style={{ backgroundColor: "#bb0a21", color: "#D3D4D9", padding: "20px" }}>
-        <h1>Welcome to VideoGameFinder</h1>
-        <p>Discover your next favorite video game</p>
-      </header>
-
+    <div className="homepage">
+      <div className="header">
+        <header style={{ backgroundColor: "#bb0a21", color: "#D3D4D9", padding: "20px", fontFamily: "Press Start 2P"}}>
+          <h1>Welcome to VideoGameFinder</h1>
+          <p>Discover your next favorite video game</p>
+        </header>
+      </div>
       <section className="cta-section" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", backgroundColor: "#2e282a", padding: "40px 20px" }}>
         <div className="cta-content" style={{ flex: 1 }}>
-        <Link to="/profile" style={{ color: "#D3D4D9" }}>
+        <Link to="/profile" style={{ color: "#D3D4D9"}}>
             <h2>Track Your Games</h2>
           </Link>
           <p style={{ color: "#D3D4D9" }}>
@@ -39,7 +40,7 @@ export default function Landing() {
         </div>
       </section>
 
-      <section className="get-started-section" style={{ backgroundColor: "#2e282a", color: "#D3D4D9", padding: "15px 20px", textAlign: "center" }}>
+      <section className="get-started-section" style={{ backgroundColor: "#2e282a", color: "#D3D4D9", padding: "5px 10px", textAlign: "center",  }}>
         <h2>Ready to Get Started?</h2>
         <p>
           Sign up now to start tracking your games, receiving recommendations,
@@ -49,10 +50,6 @@ export default function Landing() {
           Sign Up
         </Link>
       </section>
-
-      <footer style={{ backgroundColor: "#2e282a", color: "#D3D4D9", textAlign: "center", padding: "10px 0" }}>
-        <p>&copy; 2023 Video Game Finder</p>
-      </footer>
     </div>
   );
 }

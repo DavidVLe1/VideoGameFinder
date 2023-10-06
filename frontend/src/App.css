@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+
+.cta-section {
+  font-family: 'Press Start 2P', sans-serif;
+}
+
+.header {
+  font-family: 'Press Start 2P', sans-serif;
+}
+
+body {
+  font-family: 'vt323', sans-serif;
+}
