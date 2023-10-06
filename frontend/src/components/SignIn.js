@@ -40,6 +40,7 @@ export default function SignIn() {
       } else {
         const errorData = await response.json();
         console.error("Sign-in failed:", errorData);
+        navigate("/error");
       }
     } catch (error) {
       console.error("An error occurred:", error);
