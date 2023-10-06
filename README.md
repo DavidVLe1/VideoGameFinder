@@ -100,3 +100,24 @@ User Sign In
 
 Any blockers? 
 
+
+
+Default Min-Max and Start and End Date in Form - requires a change in the Form.js
+![image](https://github.com/LoganHajdukiewicz/VideoGameFinder/assets/33878973/8198c44d-43fc-47d4-9e43-5a77d0eae0e8)
+
+For October 6
+
+Oct 6 Stand Updates
+
+What did you get done yesterday? Did you get the things done that you wanted to?
+- Backend: We store and retrieve Genres and Platforms
+- Frontend: Form that can be filled and includes API key - fetches from online source and filters the result and displays the results table
+- UI: Structured the entire web app and Landing Page (completed)
+
+ 
+What are you going to do today?
+- Backend: We need to store and retrieve User and Preferences
+- Frontend: Form default values and if User is logged in - overrides their preferences
+- UI: Create the signup, signin and pass preferences to form
+	
+Any blockers?
