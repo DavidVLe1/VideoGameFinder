@@ -10,10 +10,10 @@ export default function GameForm() {
     name: "",
     genres: "",
     platforms: "",
-    startDate: "",
-    endDate: "",
-    minNumber: "",
-    maxNumber: ""
+    startDate: "1996-01-01",
+    endDate: "2023-01-01",
+    minNumber: "0",
+    maxNumber: "100"
   });
 
   function handleChange(event) {
@@ -69,6 +69,7 @@ export default function GameForm() {
                   className="me-2"
                   onChange={handleChange}
                   required
+                  defaultValue={formData.startDate}
                 />
                 <input
                   type="date"
@@ -76,6 +77,7 @@ export default function GameForm() {
                   name="endDate"
                   onChange={handleChange}
                   required
+                  defaultValue={formData.endDate}
                 />
               </div>
             </div>
@@ -91,6 +93,7 @@ export default function GameForm() {
                 max="100"
                 onChange={handleChange}
                 required
+                defaultValue={formData.minNumber}
               />
             </div>
             <div className="col-12 col-md-4 mb-3">
@@ -102,6 +105,7 @@ export default function GameForm() {
                 min="0"
                 max="100"
                 onChange={handleChange}
+                defaultValue={formData.maxNumber}
                 required
               />
             </div>
