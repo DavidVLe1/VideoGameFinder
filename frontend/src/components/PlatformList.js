@@ -42,8 +42,9 @@ export default function PlatformList({handleChange}) {
                 name="platforms"
                 id="platforms"
                 onChange={handleChange}
+                required
                 className="form-select">
-                <option value='' disabled>
+                <option value='' >
                     [Select Platforms]
                 </option>
                 {platforms.map(platform => (

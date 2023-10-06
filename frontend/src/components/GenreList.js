@@ -40,9 +40,10 @@ export default function GenreList({handleChange}) {
             <select
                 name="genres"
                 id="genres"
+                required
                 onChange={handleChange}
                 className="form-select">
-                <option value='' disabled>
+                <option value='' >
                     [Select Genres]
                 </option>
                 {genres.map(genre => (
