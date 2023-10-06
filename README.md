@@ -121,3 +121,21 @@ What are you going to do today?
 - UI: Create the signup, signin and pass preferences to form
 	
 Any blockers?
+
+
+
+1. When we load up the application
+	1. Cool Static Page
+ 	2. NavBar
+  		1. Logo
+    		2. Login
+      		3. Signup
+2. Pathway for Existing User: 
+	1. <Click> Login: Login Form
+    		1. Email
+    		2. Password
+    		3. Submit onClick (sends info [POST] to Backend. Returns with Either User <userId> or Error
+    			1. Error - Error Page
+    			2. Return to Home
+    		4. Cancel
+    			1. Return to Home
