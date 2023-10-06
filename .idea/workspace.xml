@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0e3d5fa5-03d6-46e8-aad0-5feb2c726623" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/learn/video_games/controllers/PlatformController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/learn/video_games/controllers/PlatformController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/learn/video_games/data/PlatformRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/learn/video_games/data/PlatformRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/learn/video_games/data/PlatformRepositoryJdbcTemplateRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/learn/video_games/data/PlatformRepositoryJdbcTemplateRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/learn/video_games/data/mappers/PlatformMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/learn/video_games/data/mappers/PlatformMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/learn/video_games/domain/PlatformService.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/learn/video_games/domain/PlatformService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/learn/video_games/models/Platform.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/learn/video_games/models/Platform.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 7
+}]]></component>
+  <component name="ProjectId" id="2WOUrSC3G5X3l7yvpHTu74GQ501" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/logan/Desktop/VideoGameFinder"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0e3d5fa5-03d6-46e8-aad0-5feb2c726623" name="Changes" comment="" />
+      <created>1696603320580</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1696603320580</updated>
+    </task>
+    <servers />
+  </component>
+</project>
