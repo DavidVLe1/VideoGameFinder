@@ -25,6 +25,9 @@ function GameRow({game}){
             <td>
                 {esrbRating}
             </td>
+            <td>
+                <img src={game.background_image} alt={game.name}></img>
+            </td>
         </tr>
     )
 }

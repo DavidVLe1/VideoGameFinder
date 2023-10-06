@@ -78,7 +78,7 @@ export default function GameList() {//{ preferences }
                 console.error(error); // Log for debugging
             });
     }, []);
-    // console.log(games);
+     console.log(games);
 
     return (
         <>
@@ -89,7 +89,7 @@ export default function GameList() {//{ preferences }
                 ) : (
                     <table>
                         <TableHead
-                            headers={['Name', 'Platforms', 'Genres', 'Release Date', 'MetaCritic Rating', 'ESRB Rating']}
+                            headers={['Name', 'Platforms', 'Genres', 'Release Date', 'MetaCritic Rating', 'ESRB Rating', 'Image']}
                         />
                         <tbody>
                             {games.map((game) => (
