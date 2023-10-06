@@ -6,10 +6,10 @@ Content-Type: application/json
 
 {
     "userId": 0,
-    "firstName": "K",
-    "lastName": "D",
-    "email": "kd@warriors.com",
-    "passwd": "goDubs"
+    "firstName": "F",
+    "lastName": "M",
+    "email": "finn@warriors.com",
+    "passwd": "adventure"
 }
 
 ###
@@ -18,8 +18,8 @@ POST http://localhost:8080/api/user/authenticate HTTP/1.1
 Content-Type: application/json
 
 {
-    "email": "kd@warriors.com",
-    "passwd": "goDubs"
+    "email": "finn@warriors.com",
+    "passwd": "adventure"
 }
 
 ###

@@ -1,8 +1,9 @@
 import { useState } from "react";
+import { useEffect } from "react";
 
 export default function SignUp() {
   const [signUpFormData, setSignUpFormData] = useState({
-    userId:0,
+    userId: 0,
     firstName: "",
     lastName: "",
     email: "",
@@ -16,10 +17,14 @@ export default function SignUp() {
 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
+  useEffect(() => {
+    console.log("Updated Form Data with userID:", signUpFormData);
+  }, [signUpFormData]);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log("Form Data:", signUpFormData);
-  
+
     try {
       const response = await fetch("http://localhost:8080/api/user", {
         method: "POST",
@@ -28,10 +33,13 @@ export default function SignUp() {
         },
         body: JSON.stringify(signUpFormData),
       });
-  
+
       if (response.ok) {
+        const responseData = await response.json();
+        const { userId } = responseData; // Extract userId from the response
         setIsAuthenticated(true);
         console.log("Registration Successful");
+        setSignUpFormData({ ...signUpFormData, userId });
       } else {
         const errorData = await response.json();
         console.error("Registration failed:", errorData);
@@ -92,7 +100,7 @@ export default function SignUp() {
             Password
           </label>
           <input
-            type="passwd"
+            type="password"
             className="form-control"
             id="passwd"
             name="passwd"
