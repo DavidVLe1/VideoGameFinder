@@ -8,10 +8,8 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
-import java.util.List;
 
 @Repository
 public class UserRepositoryJdbcTemplateRepository implements UserRepository {
@@ -25,18 +23,17 @@ public class UserRepositoryJdbcTemplateRepository implements UserRepository {
 
     @Override
     @Transactional
-    public int findByAuth(Auth userToAuth) {
+    public User findByAuth(Auth userToAuth) {
 
-        final String sql = "select user_id "
-                + "from user "
+        final String sql = "select user_id, first_name, last_name, email, passwd  "
+                + "from users "
                 + "where email = ? and passwd = ?;";
 
-        int userId = jdbcTemplate.query(sql, new AuthMapper(), userToAuth.getEmail(), userToAuth.getPasswd()).stream()
+       return jdbcTemplate.query(sql, new UserMapper(), userToAuth.getEmail(), userToAuth.getPasswd()).stream()
                 .findFirst().orElse(null);
 
-
-        return userId;
     }
+
 
 
     @Override

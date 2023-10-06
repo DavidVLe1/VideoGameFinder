@@ -24,9 +24,13 @@ public class UserController {
 
     //@GetMapping("/{authenticate}")
 
-    @GetMapping
-    public int findByName(@RequestBody Auth userToAuth) {
-        return service.findByAuth(userToAuth);
+    @PostMapping("/{authenticate}")
+    public ResponseEntity<Object> authenticate(@RequestBody Auth userToAuth) {
+        Result<User> result = service.findByAuth(userToAuth);
+        if (result.isSuccess()) {
+            return new ResponseEntity<>(result.getPayload(), HttpStatus.ACCEPTED);
+        }
+        return ErrorResponse.build(result);
     }
 
 

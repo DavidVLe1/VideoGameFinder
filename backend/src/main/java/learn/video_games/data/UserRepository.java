@@ -9,7 +9,7 @@ import java.util.List;
 public interface UserRepository {
     //List<User> findAll();
 
-    int findByAuth(Auth userToAuth);
+    User findByAuth(Auth userToAuth);
 
     User add(User user);
 
