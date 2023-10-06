@@ -100,3 +100,7 @@ User Sign In
 
 Any blockers? 
 
+
+
+Default Min-Max and Start and End Date in Form - requires a change in the Form.js
+![image](https://github.com/LoganHajdukiewicz/VideoGameFinder/assets/33878973/8198c44d-43fc-47d4-9e43-5a77d0eae0e8)
