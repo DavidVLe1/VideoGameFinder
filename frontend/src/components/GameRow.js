@@ -3,6 +3,7 @@
 function GameRow({game}){
     const genreNames = game.genres.map((genre) => genre.name).join(', ');
     const platformNames = game.platforms.map((platformGroup) => platformGroup.platform.name).join(', ');
+    const esrbRating = game.esrb_rating ? game.esrb_rating.name : 'N/A';
     // console.log(game.platform);
     return(
         <tr>
@@ -22,7 +23,7 @@ function GameRow({game}){
                 {game.metacritic}
             </td>
             <td>
-                {game.esrb_rating.name}
+                {esrbRating}
             </td>
         </tr>
     )
