@@ -1,10 +1,15 @@
 import React from "react";
+import "../App.css";
+import { Link } from "react-router-dom";
 
 const ErrorPage = () => {
   return (
-    <div>
-      <h1>Uh Oh</h1>
-      <p>Something went wrong. :( </p>
+    <div className="error-page-background">
+      <div className="error-content">
+        <Link to="/" className="go-back-button">
+          Go Back Home
+        </Link>
+      </div>
     </div>
   );
 };

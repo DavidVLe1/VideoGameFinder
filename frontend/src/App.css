@@ -49,3 +49,43 @@
 body {
   font-family: 'vt323', sans-serif;
 }
+
+.error-page-background {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 94vh;
+  background-image: url('./youhavediedofdysentery.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.error-content {
+  text-align: center;
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.go-back-button {
+  display: inline-block;
+  background-color: #14ff4b;
+  color: #000000;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-family: monospace;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.go-back-button:hover {
+  background-color: #14ff4b;
+  color: #000000;
+}
+
+.go-back-button:focus {
+  outline: none;
+}
