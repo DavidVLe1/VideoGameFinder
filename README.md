@@ -127,13 +127,16 @@ Any blockers?
 1. When we load up the application
 	1. Cool Static Page
  	2. NavBar
-		[ ] Logo
-		[ ] Login
-		[ ] Signup
+
+[ ] Logo
+[ ] Login
+[ ] Signup
+
 2. Pathway for Existing User: 
 	1. <Click> Login: Login Form
-    		1. Email
-    		2. Password
+
+[ ] Email
+[ ] Password
     		3. Submit onClick (sends info [POST] to Backend. Returns with Either User <userId> or Error
     			1. Error - Error Page
     			2. Return to Home
