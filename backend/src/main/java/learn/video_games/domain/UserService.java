@@ -1,6 +1,7 @@
 package learn.video_games.domain;
 
 import learn.video_games.data.UserRepository;
+import learn.video_games.models.Auth;
 import learn.video_games.models.User;
 import org.springframework.stereotype.Service;
 
@@ -21,12 +22,11 @@ public class UserService {
         this.repository = repository;
     }
 
-    /*
-    public User findByName(String userName) {
-        return repository.findByName(userName);
+
+    public int findByAuth(Auth userToAuth) {
+        return repository.findByAuth(userToAuth);
     }
 
-     */
 
     public Result<User> add(User user) {
         Result<User> result = validate(user);
@@ -92,11 +92,11 @@ public class UserService {
         }
 
         if (Validations.isNullOrBlank(user.getEmail())) {
-            result.addMessage("lastName is required", ResultType.INVALID);
+            result.addMessage("Email is required", ResultType.INVALID);
         }
 
         if (Validations.isNullOrBlank(user.getPasswd())) {
-            result.addMessage("lastName is required", ResultType.INVALID);
+            result.addMessage("Passwd is required", ResultType.INVALID);
         }
 
 

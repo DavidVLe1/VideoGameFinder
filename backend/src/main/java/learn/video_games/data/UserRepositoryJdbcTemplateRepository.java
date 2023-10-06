@@ -1,5 +1,6 @@
 package learn.video_games.data;
 import learn.video_games.data.mappers.UserMapper;
+import learn.video_games.models.Auth;
 import learn.video_games.models.User;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -21,27 +22,23 @@ public class UserRepositoryJdbcTemplateRepository implements UserRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    /*
+
     @Override
     @Transactional
-    public User findByName(String userName) {
+    public int findByAuth(Auth userToAuth) {
 
-        final String sql = "select agent_id, first_name, middle_name, last_name, dob, height_in_inches "
-                + "from agent "
-                + "where agent_id = ?;";
+        final String sql = "select user_id "
+                + "from user "
+                + "where email = ? and passwd = ?;";
 
-        Agent agent = jdbcTemplate.query(sql, new AgentMapper(), agentId).stream()
+        int userId = jdbcTemplate.query(sql, new AuthMapper(), userToAuth.getEmail(), userToAuth.getPasswd()).stream()
                 .findFirst().orElse(null);
 
-        if (agent != null) {
-            addAgencies(agent);
-        }
 
-        return agent;
+        return userId;
     }
 
 
-     */
     @Override
     public User add(User user) {
 
