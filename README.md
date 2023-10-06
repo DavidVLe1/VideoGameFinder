@@ -182,7 +182,7 @@ Submit onClick (sends info [POST] to Backend. Returns with Either User <userId> 
 
 Submit onClick (sends info [POST] to Backend. Returns with Either User <userId> or Error
 * Error - Error Page <Link to Return to Home >
-* Success - Redirect to WallPaper (End State)
+* Success - Redirect to Config
 
 ### NAVBAR ###
 - [ ] Config
