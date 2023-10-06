@@ -1,6 +1,5 @@
 import GenreList from "./GenreList";
 import PlatformList from "./PlatformList";
-import GameList from "./GameList";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -36,20 +35,6 @@ export default function GameForm() {
         <h2>Get User Preferences into data form.</h2>
         <form onSubmit={handleFormSubmit}>
           <h1>Game Preferences</h1>
-          <div className="row">
-            <div className="col-12 col-md-8 mb-3">
-              <label className="form-label" htmlFor="name">
-                Name
-              </label>
-              <input
-                className="form-control"
-                type="text"
-                id="name"
-                name="name"
-                onChange={handleChange}
-              />
-            </div>
-          </div>
           <div className="row">
             <div className="col-12 col-md-8 mb-3">
               <GenreList handleChange={handleChange}/>

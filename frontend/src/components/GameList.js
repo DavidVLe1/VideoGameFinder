@@ -1,8 +1,7 @@
-import { useEffect, useReducer, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import TableHead from "./TableHead";
 import GameRow from "./GameRow";
-import GameForm from "./GameForm";
 import { useLocation } from "react-router-dom";
 
 export default function GameList() {//{ preferences }
