@@ -121,3 +121,78 @@ What are you going to do today?
 - UI: Create the signup, signin and pass preferences to form
 	
 Any blockers?
+
+
+### LOAD APP ###
+1. When we load up the application
+	1. NavBar
+ 	2. Cool Static Page
+ 	
+### NAVBAR ###
+- [ ] Logo
+- [ ] Login
+- [ ] Signup
+
+2. Pathway for Existing User: 
+	1. Navbar
+	2. <Click> Login: Login Form
+
+### Login Form ###
+- [ ] Email
+- [ ] Password
+- [ ] Submit
+
+Submit onClick (sends info [POST] to Backend. Returns with Either User <userId> or Error
+* Error - Error Page <Link to Return to Home >
+* Success - Redirect to WallPaper (End State)
+
+### NAVBAR ###
+- [ ] Wallpaper
+- [ ] Internals Demo
+- [ ] Config
+- [ ] Logout
+
+### Move to Internal Demo ###
+
+1. Personalized GameForm with the Profile of the Customer Preloaded (Submit Button)
+2. Returns Table
+3. Presentation can shift back to the WallPaper
+
+### Configure ###
+
+1. Game Form with all Options and Save
+2. If you save then it updated [PUT] to the Preferences Table
+3. Presentation can shift back to the Internal Demo to show how WallPaper has Evolved
+
+
+### Now we can logout and relog in to show pathway for New User ###
+
+- Load App
+- Go to Sign Up
+- Pathway for Existing User: 
+	1. Navbar
+	2. <Click> SignUp: SignUp
+
+### SignUp Form ###
+- [ ] First Name
+- [ ] Last Name
+- [ ] Email
+- [ ] Password
+- [ ] Submit
+
+Submit onClick (sends info [POST] to Backend. Returns with Either User <userId> or Error
+* Error - Error Page <Link to Return to Home >
+* Success - Redirect to Config
+
+### NAVBAR ###
+- [ ] Config
+- [ ] Logout
+
+Move to Config and Enter Save (or Submit)
+
+### NAVBAR ###
+- [ ] Wallpaper
+- [ ] Internals Demo
+- [ ] Config
+- [ ] Logout
+

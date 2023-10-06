@@ -76,8 +76,7 @@ body {
   padding: 10px 20px;
   border-radius: 5px;
   text-decoration: none;
-  font-family: monospace;
-  font-weight: bold;
+  font-family: "Press Start 2P";
   margin-bottom: 20px;
 }
 
@@ -88,4 +87,14 @@ body {
 
 .go-back-button:focus {
   outline: none;
+}
+
+.game-form-background {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 94vh;
+  background-image: url('./youhavediedofdysentery.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
