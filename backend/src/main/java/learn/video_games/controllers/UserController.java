@@ -2,6 +2,7 @@ package learn.video_games.controllers;
 
 import learn.video_games.domain.Result;
 import learn.video_games.domain.UserService;
+import learn.video_games.models.Auth;
 import learn.video_games.models.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,13 +21,19 @@ public class UserController {
         this.service = service;
     }
 
-    /*
-    @GetMapping("/{userName}")
-    public User findByName(@PathVariable String userName) {
-        return service.findByName(userName);
+
+    //@GetMapping("/{authenticate}")
+
+    @PostMapping("/{authenticate}")
+    public ResponseEntity<Object> authenticate(@RequestBody Auth userToAuth) {
+        Result<User> result = service.findByAuth(userToAuth);
+        if (result.isSuccess()) {
+            return new ResponseEntity<>(result.getPayload(), HttpStatus.ACCEPTED);
+        }
+        return ErrorResponse.build(result);
     }
 
-     */
+
 
     @PostMapping
     public ResponseEntity<Object> add(@RequestBody User user) {
