@@ -40,7 +40,7 @@ export default function Landing() {
         </div>
       </section>
 
-      <section className="get-started-section" style={{ backgroundColor: "#2e282a", color: "#D3D4D9", padding: "5px 10px", textAlign: "center",  }}>
+      <section className="get-started-section" style={{ backgroundColor: "#2e282a", color: "#D3D4D9", padding: "5px 5px", textAlign: "center",  }}>
         <h2>Ready to Get Started?</h2>
         <p>
           Sign up now to start tracking your games, receiving recommendations,
