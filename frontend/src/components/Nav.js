@@ -1,10 +1,14 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
+const navStyle = {
+  width: "100%", 
+};
+
 export default function Nav() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <div className="container">
+    <div className="container-fluid" style={navStyle}>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <NavLink className="navbar-brand vt323-font" to="/">
           VideoGameFinder
         </NavLink>
@@ -53,7 +57,7 @@ export default function Nav() {
             </li>
           </ul>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </div>
   );
 }
