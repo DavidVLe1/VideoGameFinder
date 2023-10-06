@@ -2,6 +2,7 @@ import GenreList from "./GenreList";
 import PlatformList from "./PlatformList";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../App.css";
 
 export default function GameForm() {
   const [formData, setFormData] = useState({
@@ -65,77 +66,79 @@ export default function GameForm() {
   };
 
   return (
-    <div style={containerStyle}>
-      <form onSubmit={handleFormSubmit}>
-      <h2 style={{ textAlign: "center", fontFamily: "'Press Start 2P', sans-serif" }}>Game Preferences</h2>
-        <div className="row">
-          <div className="col-12 col-md-8 mb-3">
-            <GenreList handleChange={handleChange} style={inputStyle} />
+    <div className="game-form-background">
+      <div style={containerStyle}>
+        <form onSubmit={handleFormSubmit}>
+        <h2 style={{ textAlign: "center", fontFamily: "'Press Start 2P', sans-serif" }}>Game Preferences</h2>
+          <div className="row">
+            <div className="col-12 col-md-8 mb-3">
+              <GenreList handleChange={handleChange} style={inputStyle} />
+            </div>
+            <div className="col-12 col-md-8 mb-3">
+              <PlatformList handleChange={handleChange} style={inputStyle} />
+            </div>
           </div>
-          <div className="col-12 col-md-8 mb-3">
-            <PlatformList handleChange={handleChange} style={inputStyle} />
+          <div className="row">
+            <div className="col-12 col-md-4 mb-3">
+              <label htmlFor="dateRange">Release Date Range:</label>
+              <div className="d-flex">
+                <input
+                  type="date"
+                  id="startDate"
+                  name="startDate"
+                  className="me-2"
+                  onChange={handleChange}
+                  required
+                  defaultValue={formData.startDate}
+                  style={inputStyle}
+                />
+                <input
+                  type="date"
+                  id="endDate"
+                  name="endDate"
+                  onChange={handleChange}
+                  required
+                  defaultValue={formData.endDate}
+                  style={inputStyle}
+                />
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="row">
-          <div className="col-12 col-md-4 mb-3">
-            <label htmlFor="dateRange">Release Date Range:</label>
-            <div className="d-flex">
+          <div className="row">
+            <div className="col-12 col-md-4 mb-3">
+              <label htmlFor="minNumber">Minimum MetaCritic Rating:</label>
               <input
-                type="date"
-                id="startDate"
-                name="startDate"
-                className="me-2"
+                type="number"
+                id="minNumber"
+                name="minNumber"
+                min="0"
+                max="100"
                 onChange={handleChange}
                 required
-                defaultValue={formData.startDate}
+                defaultValue={formData.minNumber}
                 style={inputStyle}
               />
+            </div>
+            <div className="col-12 col-md-4 mb-3">
+              <label htmlFor="maxNumber">Maximum MetaCritic Rating:</label>
               <input
-                type="date"
-                id="endDate"
-                name="endDate"
+                type="number"
+                id="maxNumber"
+                name="maxNumber"
+                min="0"
+                max="100"
                 onChange={handleChange}
+                defaultValue={formData.maxNumber}
                 required
-                defaultValue={formData.endDate}
                 style={inputStyle}
               />
             </div>
           </div>
-        </div>
-        <div className="row">
-          <div className="col-12 col-md-4 mb-3">
-            <label htmlFor="minNumber">Minimum MetaCritic Rating:</label>
-            <input
-              type="number"
-              id="minNumber"
-              name="minNumber"
-              min="0"
-              max="100"
-              onChange={handleChange}
-              required
-              defaultValue={formData.minNumber}
-              style={inputStyle}
-            />
-          </div>
-          <div className="col-12 col-md-4 mb-3">
-            <label htmlFor="maxNumber">Maximum MetaCritic Rating:</label>
-            <input
-              type="number"
-              id="maxNumber"
-              name="maxNumber"
-              min="0"
-              max="100"
-              onChange={handleChange}
-              defaultValue={formData.maxNumber}
-              required
-              style={inputStyle}
-            />
-          </div>
-        </div>
-        <button type="submit" className="btn btn-primary" style={buttonStyle}>
-          Submit
-        </button>
-      </form>
+          <button type="submit" className="btn btn-primary" style={buttonStyle}>
+            Submit
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
