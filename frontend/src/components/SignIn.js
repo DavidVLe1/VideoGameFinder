@@ -1,10 +1,11 @@
 import React from "react"
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function SignIn() {
   const [signInFormData, setSignInFormData] = useState({
     email: "",
-    password: ""
+    passwd: ""
   });
 
   const [isAuthenticated, setIsAuthenticated] = useState(false);//will set to true upon sign in being successful
@@ -13,12 +14,36 @@ export default function SignIn() {
     const { name, value } = event.target;
     setSignInFormData({ ...signInFormData, [name]: value });
   };
-
+  const navigate = useNavigate();
   const handleSignIn = async (event) => {
     event.preventDefault();
     console.log(signInFormData);
     //attempt to sign in, if successful, set isAuthentication to true.
     //if failure, give message of sign in failed.
+    try {
+      const response = await fetch("http://localhost:8080/api/user/authenticate", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(signInFormData),
+      });
+  
+      if (response.ok) {
+        // Sign-in was successful
+        const responseData = await response.json();
+        console.log("Sign-in Successful", responseData);
+        setIsAuthenticated(true);
+        //now i need to do something with the userId...
+        // Navigate to the "/profile" route and pass responseData as state
+        navigate("/profile", { state: responseData });
+      } else {
+        const errorData = await response.json();
+        console.error("Sign-in failed:", errorData);
+      }
+    } catch (error) {
+      console.error("An error occurred:", error);
+    }
 
   };
 
@@ -43,14 +68,14 @@ export default function SignIn() {
             />
           </div>
           <div className="mb-3">
-            <label htmlFor="password" className="form-label">
+            <label htmlFor="passwd" className="form-label">
               Password
             </label>
             <input
               type="password"
               className="form-control"
-              id="password"
-              name="password"
+              id="passwd"
+              name="passwd"
               value={signInFormData.password}
               onChange={handleChange}
               required
