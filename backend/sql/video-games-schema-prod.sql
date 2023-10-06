@@ -13,6 +13,14 @@ create table platform (
     platform_name varchar(200) not null
 );
 
+create table users (
+    user_id int primary key auto_increment,
+    first_name varchar(200) not null,
+    last_name varchar(200) not null,
+    email varchar(200) not null,
+    passwd varchar(200) not null
+);
+
 insert into genre(genre_id, genre_name) values
         (4, 'Action'),
         (51, 'Indie'),
