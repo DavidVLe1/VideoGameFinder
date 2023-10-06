@@ -127,9 +127,9 @@ Any blockers?
 1. When we load up the application
 	1. Cool Static Page
  	2. NavBar
-  		[ ] Logo
-    		[ ] Login
-      		[ ] Signup
+		[ ] Logo
+		[ ] Login
+		[ ] Signup
 2. Pathway for Existing User: 
 	1. <Click> Login: Login Form
     		1. Email
