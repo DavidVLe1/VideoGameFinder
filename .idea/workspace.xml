@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="0e3d5fa5-03d6-46e8-aad0-5feb2c726623" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/backend/target/classes/learn/video_games/controllers/PlatformController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/learn/video_games/controllers/PlatformController.class" afterDir="false" />
