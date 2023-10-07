@@ -36,7 +36,7 @@ export default function SignIn({handleAuthentication, isAuthenticated}) {
         //now i need to do something with the userId...
         // Navigate to the "/profile" route and pass responseData as state
         // navigate("/profile", { state: responseData });
-        navigate("/")
+        navigate("/");
       } else {
         const errorData = await response.json();
         console.error("Sign-in failed:", errorData);

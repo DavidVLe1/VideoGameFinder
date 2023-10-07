@@ -129,9 +129,9 @@ Any blockers?
  	2. Cool Static Page
  	
 ### NAVBAR ###
-- [ ] Logo
-- [ ] Login
-- [ ] Signup
+- [x] Logo
+- [x] Login
+- [x] Signup
 
 2. Pathway for Existing User: 
 	1. Navbar
