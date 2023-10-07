@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState,useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
-export default function SignUp() {
+export default function SignUp({handleAuthentication,handleUserId,isUserId }) {
   const [signUpFormData, setSignUpFormData] = useState({
     userId: 0,
     firstName: "",
@@ -9,13 +9,12 @@ export default function SignUp() {
     email: "",
     passwd: ""
   });
-
+  const navigate = useNavigate();
   const handleChange = (event) => {
     const { name, value } = event.target;
     setSignUpFormData({ ...signUpFormData, [name]: value });
   };
 
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
     console.log("Updated Form Data with userID:", signUpFormData);
@@ -36,10 +35,13 @@ export default function SignUp() {
 
       if (response.ok) {
         const responseData = await response.json();
+        console.log(responseData);
         const { userId } = responseData; // Extract userId from the response
-        setIsAuthenticated(true);
+        handleAuthentication(true);
         console.log("Registration Successful");
         setSignUpFormData({ ...signUpFormData, userId });
+        handleUserId(userId);
+        navigate("/preferences" )
       } else {
         const errorData = await response.json();
         console.error("Registration failed:", errorData);

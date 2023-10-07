@@ -2,11 +2,12 @@ import GenreList from "./GenreList";
 import PlatformList from "./PlatformList";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import "../App.css";
 
-export default function GameForm() {
+export default function GameForm({ isUserId }) {
   const [formData, setFormData] = useState({
-    name: "",
+    userId: isUserId,
     genres: "",
     platforms: "",
     startDate: "1958-01-01",
@@ -14,6 +15,8 @@ export default function GameForm() {
     minNumber: "0",
     maxNumber: "100"
   });
+  const [hasExistingPreferences, setHasExistingPreferences] = useState(false);
+  const navigate = useNavigate();
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -22,12 +25,87 @@ export default function GameForm() {
     console.log(updatedFormData);
   }
 
-  const navigate = useNavigate();
   const handleFormSubmit = (event) => {
     event.preventDefault();
     console.log("Form Data:", formData);
     navigate("/results", { state: { formData } });
   };
+
+  useEffect(() => {
+    fetchExistingPreferences();
+  }, []);
+
+  const fetchExistingPreferences = async () => {
+    try {
+      const response = await fetch(`http://localhost:8080/api/preferences/${isUserId}`, {
+        method: "GET",
+      });
+
+      if (response.ok) {
+        const existingPreferences = await response.json();
+        // Populated  form fields with existing preferences
+        setFormData(existingPreferences);
+      } else {
+        console.error("Error fetching existing preferences:", response.statusText);
+      }
+    } catch (error) {
+      console.error("An error occurred:", error);
+    }
+  };
+
+
+
+  const handleSave = async () => {
+    try {
+      if (hasExistingPreferences) {
+        // User has preferences, update them with a PUT request
+        const updateResponse = await fetch(`http://localhost:8080/api/preferences/${isUserId}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+
+        if (updateResponse.ok) {
+          console.log("Preferences updated successfully");
+        } else {
+          console.error("Error updating preferences:", updateResponse.statusText);
+        }
+      } else {
+        // User does not have preferences, create them with a POST request
+        const createResponse = await fetch(`http://localhost:8080/api/preferences}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+
+        if (createResponse.ok) {
+          console.log("Preferences created successfully");
+          setHasExistingPreferences(true); // Set the flag to true after creating preferences
+        } else {
+          console.error("Error creating preferences:", createResponse.statusText);
+        }
+      }
+    } catch (error) {
+      console.error("An error occurred:", error);
+    }
+  };
+
+  // Conditionally render Save button based on userId
+  const renderSaveButton = () => {
+    if (isUserId === 0) {
+      return null; // Don't render button for guests with id 0
+    }
+    return (
+      <button type="button" className="btn btn-success" onClick={handleSave}>
+        Save
+      </button>
+    );
+  };
+
 
   const containerStyle = {
     backgroundColor: "rgba(255, 255, 255, 0.9)",
@@ -40,7 +118,7 @@ export default function GameForm() {
     justifyContent: "center",
     width: "80%",
     maxWidth: "600px",
-    margin: "auto", 
+    margin: "auto",
     minHeight: "50vh",
     marginTop: "20vh"
   };
@@ -69,7 +147,7 @@ export default function GameForm() {
     <div className="game-form-background">
       <div style={containerStyle}>
         <form onSubmit={handleFormSubmit}>
-        <h2 style={{ textAlign: "center", fontFamily: "'Press Start 2P', sans-serif" }}>Game Preferences</h2>
+          <h2 style={{ textAlign: "center", fontFamily: "'Press Start 2P', sans-serif" }}>Game Preferences</h2>
           <div className="row">
             <div className="col-12 col-md-8 mb-3">
               <GenreList handleChange={handleChange} style={inputStyle} />
@@ -137,6 +215,7 @@ export default function GameForm() {
           <button type="submit" className="btn btn-primary" style={buttonStyle}>
             Submit
           </button>
+          {renderSaveButton}
         </form>
       </div>
     </div>

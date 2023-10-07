@@ -78,7 +78,7 @@ export default function GameList() {//{ preferences }
                 console.error(error); // Log for debugging
             });
     }, []);
-     console.log(games);
+    //  console.log(games);
 
     return (
         <>

@@ -185,7 +185,7 @@ Submit onClick (sends info [POST] to Backend. Returns with Either User <userId> 
 * Success - Redirect to Config
 
 ### NAVBAR ###
-- [ ] Config
+- [ ] Config( full gameform) instead of submitting to game database api, it should save it to mysql database. could modify later for multiple preferences. redirect (save to wallpaper).
 - [ ] Logout
 
 Move to Config and Enter Save (or Submit)
