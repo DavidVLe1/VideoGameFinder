@@ -99,7 +99,7 @@ body {
   background-repeat: no-repeat;
 }
 
-.sign-in-page-background {
+.sign-up-page-background {
   margin: 0;
   padding: 0;
   overflow: hidden;
@@ -109,12 +109,12 @@ body {
   background-repeat: no-repeat;
 }
 
-.sign-up-page-background {
+.sign-in-page-background {
   margin: 0;
   padding: 0;
   overflow: hidden;
   height: 94vh;
-  background-image: url('./INSERTWHATEVERPICIWANTHEREEVENTUALLY.jpg');
+  background-image: url('./MAAAARIO.jpg');
   background-size: 100%;
   background-repeat: no-repeat;
 }

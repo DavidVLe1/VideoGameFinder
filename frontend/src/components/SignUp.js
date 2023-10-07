@@ -52,7 +52,7 @@ export default function SignUp() {
 
   const containerStyle = {
     backgroundColor: "rgba(255, 255, 255, 0.9)",
-    padding: "20px",
+    padding: "10px",
     borderRadius: "20px",
     boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.2)",
     display: "flex",
@@ -90,6 +90,7 @@ export default function SignUp() {
   };
 
   return (
+    <div className="sign-up-page-background">
     <div style={containerStyle}>
       <h2 style={{ textAlign: "center", fontFamily: "'Press Start 2P', sans-serif" }}>Sign Up</h2>
       <form onSubmit={handleSubmit}>
@@ -157,6 +158,7 @@ export default function SignUp() {
           Sign Up
         </button>
       </form>
+    </div>
     </div>
   );
 }
