@@ -98,3 +98,23 @@ body {
   background-size: 100%;
   background-repeat: no-repeat;
 }
+
+.sign-in-page-background {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 94vh;
+  background-image: url('./zombes.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.sign-up-page-background {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 94vh;
+  background-image: url('./INSERTWHATEVERPICIWANTHEREEVENTUALLY.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+}

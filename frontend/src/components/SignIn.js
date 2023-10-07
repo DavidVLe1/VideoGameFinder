@@ -1,6 +1,7 @@
 import React from "react"
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../App.css"
 
 export default function SignIn() {
   const [signInFormData, setSignInFormData] = useState({
@@ -87,7 +88,9 @@ export default function SignIn() {
   };
 
   return (
-    <div style={containerStyle}>
+
+    <div className="sign-in-page-background">
+      <div style={containerStyle}>
       {isAuthenticated ? (
         <p>You are logged in. [Log Out]</p>
       ) : (
@@ -128,6 +131,7 @@ export default function SignIn() {
           </button>
         </form>
       )}
+      </div>
     </div>
   );
 }
