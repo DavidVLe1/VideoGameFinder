@@ -49,12 +49,52 @@ export default function SignUp() {
     }
   };
 
+
+  const containerStyle = {
+    backgroundColor: "rgba(255, 255, 255, 0.9)",
+    padding: "20px",
+    borderRadius: "20px",
+    boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.2)",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "80%",
+    maxWidth: "600px",
+    margin: "auto", 
+    minHeight: "50vh",
+    marginTop: "20vh"
+  };
+
+  const labelStyle = {
+    display: "block",
+    marginBottom: "5px",
+    fontWeight: "bold",
+  };
+
+  const inputStyle = {
+    width: "100%",
+    padding: "10px",
+    marginBottom: "15px",
+    borderRadius: "5px",
+    border: "1px solid #ccc",
+  };
+
+  const buttonStyle = {
+    backgroundColor: "#007bff",
+    color: "#fff",
+    padding: "10px 20px",
+    borderRadius: "5px",
+    border: "none",
+    cursor: "pointer",
+  };
+
   return (
-    <div>
-      <h2>Sign Up</h2>
+    <div style={containerStyle}>
+      <h2 style={{ textAlign: "center", fontFamily: "'Press Start 2P', sans-serif" }}>Sign Up</h2>
       <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label htmlFor="firstName" className="form-label">
+        <div className="mb-3" style={{ marginBottom: "15px" }}>
+          <label htmlFor="firstName" className="form-label" style={labelStyle}>
             First Name
           </label>
           <input
@@ -65,10 +105,11 @@ export default function SignUp() {
             value={signUpFormData.firstName}
             onChange={handleChange}
             required
+            style={inputStyle}
           />
         </div>
-        <div className="mb-3">
-          <label htmlFor="lastName" className="form-label">
+        <div lassName="mb-3" style={{ marginBottom: "15px" }}>
+          <label htmlFor="lastName" className="form-label" style={labelStyle}>
             Last Name
           </label>
           <input
@@ -79,10 +120,11 @@ export default function SignUp() {
             value={signUpFormData.lastName}
             onChange={handleChange}
             required
+            style={inputStyle}
           />
         </div>
-        <div className="mb-3">
-          <label htmlFor="email" className="form-label">
+        <div className="mb-3" style={{ marginBottom: "15px" }}>
+          <label htmlFor="email" className="form-label" style={labelStyle}>
             Email
           </label>
           <input
@@ -93,10 +135,11 @@ export default function SignUp() {
             value={signUpFormData.email}
             onChange={handleChange}
             required
+            style={inputStyle}
           />
         </div>
-        <div className="mb-3">
-          <label htmlFor="passwd" className="form-label">
+        <div className="mb-3" style={{ marginBottom: "15px" }}>
+          <label htmlFor="passwd" className="form-label" style={labelStyle}>
             Password
           </label>
           <input
@@ -107,9 +150,10 @@ export default function SignUp() {
             value={signUpFormData.passwd}
             onChange={handleChange}
             required
+            style={inputStyle}
           />
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-primary" style={buttonStyle}>
           Sign Up
         </button>
       </form>
