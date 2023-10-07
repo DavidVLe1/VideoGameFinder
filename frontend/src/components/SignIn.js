@@ -3,13 +3,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../App.css"
 
-export default function SignIn() {
+export default function SignIn({handleAuthentication, isAuthenticated}) {
   const [signInFormData, setSignInFormData] = useState({
     email: "",
     passwd: ""
   });
-
-  const [isAuthenticated, setIsAuthenticated] = useState(false);//will set to true upon sign in being successful
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -34,10 +32,11 @@ export default function SignIn() {
         // Sign-in was successful
         const responseData = await response.json();
         console.log("Sign-in Successful", responseData);
-        setIsAuthenticated(true);
+        handleAuthentication(true);
         //now i need to do something with the userId...
         // Navigate to the "/profile" route and pass responseData as state
-        navigate("/profile", { state: responseData });
+        // navigate("/profile", { state: responseData });
+        navigate("/")
       } else {
         const errorData = await response.json();
         console.error("Sign-in failed:", errorData);
