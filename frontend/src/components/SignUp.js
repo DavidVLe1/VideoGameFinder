@@ -16,13 +16,13 @@ export default function SignUp({handleAuthentication,handleUserId,isUserId }) {
   };
 
 
-  useEffect(() => {
-    console.log("Updated Form Data with userID:", signUpFormData);
-  }, [signUpFormData]);
+  // useEffect(() => {
+  //   console.log("Updated Form Data with userID:", signUpFormData);
+  // }, [signUpFormData]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("Form Data:", signUpFormData);
+    // console.log("Form Data:", signUpFormData);
 
     try {
       const response = await fetch("http://localhost:8080/api/user", {
@@ -39,7 +39,7 @@ export default function SignUp({handleAuthentication,handleUserId,isUserId }) {
         const { userId } = responseData; // Extract userId from the response
         handleAuthentication(true);
         handleUserId(userId);
-        console.log("isUserId: "+isUserId);
+        // console.log("isUserId: "+isUserId); 1 means not guest
         console.log("Registration Successful");
         setSignUpFormData({ ...signUpFormData, userId });
         navigate("/preferences" )

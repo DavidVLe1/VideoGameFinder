@@ -57,7 +57,8 @@ export default function GameForm({ isUserId }) {
         return response.json(); // Parse and return JSON data
       } else if (response.status >= 500) {
         return response.json()
-          .then((error) => Promise.reject(new Error(error.message)));
+          .then((error) => Promise.reject(new Error(error.message)))
+          .then(console.log("No Preferences Found"));
       } else {
         return Promise.reject(new Error(`Unexpected status code ${response.status}`));
       }
@@ -210,7 +211,7 @@ export default function GameForm({ isUserId }) {
                 onChange={handleChange}
                 required
                 value={formData.minNumber}
-                defaultValue={formData.minNumber}
+                defaultValue={0}
                 style={inputStyle}
               />
             </div>
@@ -224,7 +225,7 @@ export default function GameForm({ isUserId }) {
                 max="100"
                 onChange={handleChange}
                 value={formData.maxNumber}
-                defaultValue={formData.maxNumber}
+                defaultValue={100}
                 required
                 style={inputStyle}
               />

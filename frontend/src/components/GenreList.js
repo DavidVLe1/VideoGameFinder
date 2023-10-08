@@ -44,7 +44,7 @@ export default function GenreList({handleChange, formData}) {
                 multiple
                 onChange={handleChange}
                 className="form-select"
-                value={formData.genres}
+                value={formData.genres || []}
                 >
                 
                 <option value=''  disabled>

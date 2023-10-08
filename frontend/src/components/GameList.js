@@ -5,7 +5,6 @@ import { useLocation } from "react-router-dom";
 
 export default function GameList({gamesData, handleGamesData}) {//{ preferences }
     const apiKey = process.env.REACT_APP_GAME_FINDER_API_KEY;
-    const [games, setGames] = useState([]);
     const { state } = useLocation();
     const formData = state?.formData || {};
     // console.log("This is the game Data: ", formData);
@@ -70,7 +69,6 @@ export default function GameList({gamesData, handleGamesData}) {//{ preferences 
                 }
             })
             .then(data => {
-                setGames(data.results);
                 handleGamesData(data.results);
             })
             .catch(error => {

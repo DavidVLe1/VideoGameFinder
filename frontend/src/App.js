@@ -12,10 +12,13 @@ import Logout from './components/LogOut';
 
 import './App.css';
 import Library from './components/Library';
+import RecommendedGame from './components/Top3Games';
+import Top3Games from './components/Top3Games';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  // Function to update authentication status
+
+
   const handleAuthentication = (status) => {
     setIsAuthenticated(status);
     // console.log('isAuthenticated updated:', status);
@@ -28,7 +31,7 @@ function App() {
   const handleUserId = (userId) => {
     setisUserId(userId);
   };
-//key={isAuthenticated.toString()}
+
   return (
     <Router>
       <Header isAuthenticated={isAuthenticated}/>
@@ -36,11 +39,12 @@ function App() {
         <Route path='/' element={<Landing />}></Route>
         <Route path='/signin' element={<SignIn handleAuthentication={handleAuthentication} isAuthenticated={isAuthenticated} handleUserId={handleUserId} isUserId={isUserId}/>}></Route>
         <Route path='/signup' element={<SignUp  handleAuthentication={handleAuthentication} isUserId={isUserId} handleUserId={handleUserId}/>}></Route>
-        <Route path='/results' element={<GameList gamesData={gamesData} handleGamesData={handleGamesData} />}></Route>
+        <Route path='/results' element={<GameList gamesData={gamesData} handleGamesData={handleGamesData}/>}></Route>
         <Route path='/profile' element={<Profile />}></Route>
         <Route path='/library' element={<Library gamesData={gamesData} handleGamesData={handleGamesData} />}></Route>
         <Route path='/preferences' element={<GameForm isUserId={isUserId} />}></Route>
         <Route path='/logout' element={<Logout handleAuthentication={handleAuthentication} handleGamesData={handleGamesData}/>}></Route>
+        <Route path='/recommend' element={<Top3Games gamesData={gamesData}/>}></Route>
         <Route path='/*' element={<ErrorPage />}></Route>
       </Routes>
     </Router>

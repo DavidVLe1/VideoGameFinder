@@ -7,7 +7,6 @@ const navStyle = {
 };
 
 export default function Nav({ isAuthenticated }) {
-  console.log("NavBar says authentication is currently: "+isAuthenticated);
   return (
     <div className="container-fluid" style={navStyle}>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
