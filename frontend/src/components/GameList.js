@@ -31,7 +31,7 @@ export default function GameList({gamesData, handleGamesData}) {//{ preferences 
             queryParams += `&dates=${startDateFormatted},${endDateFormatted}`;
         }
 
-        if (formData.minMetaCritic && formData.maxMetaCritic) {
+        if (formData.minMetaCritic>=0 && formData.maxMetaCritic) {
             queryParams += `&metacritic=${formData.minMetaCritic},${formData.maxMetaCritic}`;
         }
 

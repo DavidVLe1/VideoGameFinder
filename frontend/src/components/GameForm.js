@@ -193,7 +193,7 @@ export default function GameForm({ isUserId }) {
                 onChange={handleChange}
                 required
                 value={formData.minMetaCritic}
-                defaultValue={0}
+                defaultValue={"0"}
                 style={inputStyle}
               />
             </div>
@@ -207,7 +207,7 @@ export default function GameForm({ isUserId }) {
                 max="100"
                 onChange={handleChange}
                 value={formData.maxMetaCritic}
-                defaultValue={100}
+                defaultValue={"100"}
                 required
                 style={inputStyle}
               />
