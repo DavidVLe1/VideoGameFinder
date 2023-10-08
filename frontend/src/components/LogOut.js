@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function Logout({handleAuthentication}) {
+export default function Logout({handleAuthentication,handleGamesData}) {
     const navigate = useNavigate();
 
     const handleLogout = () => {
         // Perform logout actions here, e.g., setting authentication to false
         handleAuthentication(false);
-
+        handleGamesData([]);
         // After logging out, navigate to the landing route "/"
         navigate("/");
     };

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function GenreList({handleChange}) {
+export default function GenreList({handleChange, formData}) {
     const [genres, setGenres] = useState([]);
     const navigate = useNavigate();
 
@@ -43,7 +43,10 @@ export default function GenreList({handleChange}) {
                 required
                 multiple
                 onChange={handleChange}
-                className="form-select">
+                className="form-select"
+                value={formData.genres}
+                >
+                
                 <option value=''  disabled>
                     [Select Genres]
                 </option>

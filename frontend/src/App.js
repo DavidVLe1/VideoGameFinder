@@ -39,8 +39,8 @@ function App() {
         <Route path='/results' element={<GameList gamesData={gamesData} handleGamesData={handleGamesData} />}></Route>
         <Route path='/profile' element={<Profile />}></Route>
         <Route path='/library' element={<Library gamesData={gamesData} handleGamesData={handleGamesData} />}></Route>
-        <Route path='/preferences' element={<GameForm isUserId={isUserId}/>}></Route>
-        <Route path='/logout' element={<Logout handleAuthentication={handleAuthentication}/>}></Route>
+        <Route path='/preferences' element={<GameForm isUserId={isUserId} />}></Route>
+        <Route path='/logout' element={<Logout handleAuthentication={handleAuthentication} handleGamesData={handleGamesData}/>}></Route>
         <Route path='/*' element={<ErrorPage />}></Route>
       </Routes>
     </Router>

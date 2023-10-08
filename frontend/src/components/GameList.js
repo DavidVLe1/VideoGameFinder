@@ -83,7 +83,7 @@ export default function GameList({gamesData, handleGamesData}) {//{ preferences 
         <>
             <div>
                 <h1>List/table of game data</h1>
-                {games.length === 0 ? (
+                {gamesData.length === 0 ? (
                     <p>No games found under the specified criteria.</p>
                 ) : (
                     <table>
@@ -91,7 +91,7 @@ export default function GameList({gamesData, handleGamesData}) {//{ preferences 
                             headers={['Name', 'Platforms', 'Genres', 'Release Date', 'MetaCritic Rating', 'ESRB Rating', 'Image']}
                         />
                         <tbody>
-                            {games.map((game) => (
+                            {gamesData.map((game) => (
                                 <GameRow
                                     key={game.id}
                                     game={game}

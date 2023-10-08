@@ -45,7 +45,7 @@ export default function PlatformList({handleChange,  formData}) {
                 required
                 multiple
                 className="form-select"
-                
+                value={formData.platforms}
                 >
                 <option value='' disabled >
                     [Select Platforms]

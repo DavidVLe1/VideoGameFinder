@@ -20,13 +20,13 @@ export default function GameForm({ isUserId }) {
 
   function handleChange(event) {
     const { name, value, options } = event.target;
-  
+
     // Check if the target element is a select element
     if (event.target.tagName === "SELECT") {
       const selectedOptions = Array.from(options)
         .filter((option) => option.selected)
         .map((option) => option.value);
-  
+
       const updatedFormData = { ...formData, [name]: selectedOptions };
       setFormData(updatedFormData);
       console.log(updatedFormData);
@@ -40,74 +40,84 @@ export default function GameForm({ isUserId }) {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    console.log("Form Data:", formData);
-    navigate("/results", { state: { formData } });
+    try {
+      navigate("/results", { state: { formData } });
+    } catch (error) {
+      console.error("An error occurred:", error);
+    }
   };
 
-  // useEffect(() => { most likely not need it
-  //   fetchExistingPreferences();
-  // }, []);
+  const fetchExistingPreferences = async () => {
+    try {
+      const response = await fetch(`http://localhost:8080/api/preferences/${isUserId}`, {
+        method: "GET",
+      });
 
-  // const fetchExistingPreferences = async () => {
-  //   try {
-  //     const response = await fetch(`http://localhost:8080/api/user/${isUserId}`, {
-  //       method: "GET",
-  //     });
+      if (response.ok) {
+        return response.json(); // Parse and return JSON data
+      } else if (response.status >= 500) {
+        return response.json()
+          .then((error) => Promise.reject(new Error(error.message)));
+      } else {
+        return Promise.reject(new Error(`Unexpected status code ${response.status}`));
+      }
+    } catch (error) {
+      return Promise.reject(error);
+    }
+  };
 
-  //     if (response.ok) {
-  //       const existingPreferences = await response.json();
-  //       // Populated  form fields with existing preferences
-  //       setFormData(existingPreferences);
-  //     } else {
-  //       console.error("Error fetching existing preferences:", response.statusText);
-  //     }
-  //   } catch (error) {
-  //     console.error("An error occurred:", error);
-  //   }
-  // };
+  // Then, in your useEffect, handle the result:
+  useEffect(() => {
+    fetchExistingPreferences()
+      .then((existingPreferences) => {
+        // Populated form fields with existing preferences
+        console.log("Existing preferences are:", existingPreferences);
+        setFormData(existingPreferences);
+      })
+      .catch((error) => {
+        console.error("An error occurred:", error);
+      });
+  }, []);
 
   const handleSave = async () => {
     console.log(formData);
     try {
+      // User does not have preferences, create them with a POST request
+      const createResponse = await fetch(`http://localhost:8080/api/preferences`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-
-  
-        // User does not have preferences, create them with a POST request
-        const createResponse = await fetch(`http://localhost:8080/api/preferences`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        });
-
-        if (createResponse.ok) {
-          console.log("Preferences created successfully");
-          setHasExistingPreferences(true); // Set the flag to true after creating preferences
-        } else {
-          console.error("Error creating preferences:", createResponse.statusText);
-        }
+      if (createResponse.ok) {
+        console.log("Preferences created successfully");
+        setHasExistingPreferences(true); // Set the flag to true after creating preferences
+      } else {
+        console.error("Error creating preferences:", createResponse.statusText);
+      }
       // }
     } catch (error) {
       console.error("An error occurred:", error);
     }
   };
 
-  const handleUpdate= async ()=>{
-        // User has preferences, update them with a PUT request
-        const updateResponse = await fetch(`http://localhost:8080/api/preferences/${isUserId}`, {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        });
+  const handleUpdate = async () => {
+    // User has preferences, update them with a PUT request
+    const updateResponse = await fetch(`http://localhost:8080/api/preferences/${isUserId}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
 
-        if (updateResponse.ok) {
-          console.log("Preferences updated successfully");
-        } else {
-          console.error("Error updating preferences:", updateResponse.statusText);
-        }
+    if (updateResponse.ok) {
+      console.log("Preferences updated successfully");
+    } else {
+      console.error("Error updating preferences:", updateResponse.statusText);
+    }
   }
 
 
@@ -171,6 +181,7 @@ export default function GameForm({ isUserId }) {
                   className="me-2"
                   onChange={handleChange}
                   required
+                  value={formData.startDate}
                   defaultValue={formData.startDate}
                   style={inputStyle}
                 />
@@ -180,6 +191,7 @@ export default function GameForm({ isUserId }) {
                   name="endDate"
                   onChange={handleChange}
                   required
+                  value={formData.endDate}
                   defaultValue={formData.endDate}
                   style={inputStyle}
                 />
@@ -197,6 +209,7 @@ export default function GameForm({ isUserId }) {
                 max="100"
                 onChange={handleChange}
                 required
+                value={formData.minNumber}
                 defaultValue={formData.minNumber}
                 style={inputStyle}
               />
@@ -210,6 +223,7 @@ export default function GameForm({ isUserId }) {
                 min="0"
                 max="100"
                 onChange={handleChange}
+                value={formData.maxNumber}
                 defaultValue={formData.maxNumber}
                 required
                 style={inputStyle}
