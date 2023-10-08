@@ -14,6 +14,7 @@ import './App.css';
 import Library from './components/Library';
 import RecommendedGame from './components/Top3Games';
 import Top3Games from './components/Top3Games';
+import DisplayResults from './components/DisplayResults';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -45,6 +46,7 @@ function App() {
         <Route path='/preferences' element={<GameForm isUserId={isUserId} />}></Route>
         <Route path='/logout' element={<Logout handleAuthentication={handleAuthentication} handleGamesData={handleGamesData}/>}></Route>
         <Route path='/recommend' element={<Top3Games gamesData={gamesData}/>}></Route>
+        <Route path="/displayResults" element={<DisplayResults gamesData={gamesData}/>}></Route>
         <Route path='/*' element={<ErrorPage />}></Route>
       </Routes>
     </Router>

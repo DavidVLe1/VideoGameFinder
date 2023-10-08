@@ -104,24 +104,6 @@ export default function GameForm({ isUserId }) {
     }
   };
 
-  const handleUpdate = async () => {
-    // User has preferences, update them with a PUT request
-    const updateResponse = await fetch(`http://localhost:8080/api/preferences/${isUserId}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
-
-    if (updateResponse.ok) {
-      console.log("Preferences updated successfully");
-    } else {
-      console.error("Error updating preferences:", updateResponse.statusText);
-    }
-  }
-
-
   const containerStyle = {
     backgroundColor: "rgba(255, 255, 255, 0.9)",
     padding: "20px",
@@ -237,7 +219,7 @@ export default function GameForm({ isUserId }) {
           <button type="button" className="btn btn-success" onClick={handleSave}>
             Save
           </button>
-          {/* <button type='button' className="btn btn-secondary" onClick={handleUpdate}>Update</button> */}
+          
         </form>
       </div>
     </div>
