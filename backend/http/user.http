@@ -8,8 +8,8 @@ Content-Type: application/json
     "userId": 0,
     "firstName": "David",
     "lastName": "Logan",
-    "email": "greenish@green.com",
-    "passwd": "loganish"
+    "email": "green@green.com",
+    "passwd": "logan"
 }
 
 ###

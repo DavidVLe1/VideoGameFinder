@@ -11,6 +11,8 @@ public interface UserRepository {
 
     User findByAuth(Auth userToAuth);
 
+    User findByEmail(String email);
+
     User add(User user);
 
 

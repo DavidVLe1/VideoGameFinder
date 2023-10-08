@@ -34,6 +34,19 @@ public class UserRepositoryJdbcTemplateRepository implements UserRepository {
 
     }
 
+    @Override
+    @Transactional
+    public User findByEmail(String email) {
+
+        final String sql = "select user_id, first_name, last_name, email, passwd  "
+                + "from users "
+                + "where email = ?;";
+
+        return jdbcTemplate.query(sql, new UserMapper(), email).stream()
+                .findFirst().orElse(null);
+
+    }
+
 
 
     @Override

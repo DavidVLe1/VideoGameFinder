@@ -37,10 +37,8 @@ public class UserService {
 
     public Result<User> add(User user) {
         Result<User> result = validate(user);
-        Auth toCheckAuth = new Auth();
-        toCheckAuth.setEmail(user.getEmail());
-        toCheckAuth.setPasswd(user.getPasswd());
-        if (repository.findByAuth(toCheckAuth) != null) {
+
+        if (repository.findByEmail(user.getEmail()) != null) {
             result.addMessage("user is already in the system", ResultType.INVALID);
         }
 
