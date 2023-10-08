@@ -41,6 +41,7 @@ export default function GenreList({handleChange}) {
                 name="genres"
                 id="genres"
                 required
+                multiple
                 onChange={handleChange}
                 className="form-select">
                 <option value='' >

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function PlatformList({handleChange}) {
+export default function PlatformList({handleChange,  formData}) {
     const [platforms, setPlatforms] = useState([]);
     const navigate = useNavigate();
 
@@ -43,7 +43,10 @@ export default function PlatformList({handleChange}) {
                 id="platforms"
                 onChange={handleChange}
                 required
-                className="form-select">
+                multiple
+                className="form-select"
+                
+                >
                 <option value='' >
                     [Select Platforms]
                 </option>

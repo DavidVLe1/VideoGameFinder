@@ -19,8 +19,11 @@ export default function GameForm({ isUserId }) {
   const navigate = useNavigate();
 
   function handleChange(event) {
-    const { name, value } = event.target;
-    const updatedFormData = { ...formData, [name]: value };
+    const { name, value, options } = event.target;
+    const selectedOptions = [...options].filter((option) => option.selected).map((option) => option.value);
+  
+    // For multiple selections, use an array to store the selected values
+    const updatedFormData = { ...formData, [name]: selectedOptions };
     setFormData(updatedFormData);
     console.log(updatedFormData);
   }
@@ -52,8 +55,6 @@ export default function GameForm({ isUserId }) {
       console.error("An error occurred:", error);
     }
   };
-
-
 
   const handleSave = async () => {
     try {
@@ -150,10 +151,10 @@ export default function GameForm({ isUserId }) {
           <h2 style={{ textAlign: "center", fontFamily: "'Press Start 2P', sans-serif" }}>Game Preferences</h2>
           <div className="row">
             <div className="col-12 col-md-8 mb-3">
-              <GenreList handleChange={handleChange} style={inputStyle} />
+              <GenreList handleChange={handleChange}  formData={formData} style={inputStyle} />
             </div>
             <div className="col-12 col-md-8 mb-3">
-              <PlatformList handleChange={handleChange} style={inputStyle} />
+              <PlatformList handleChange={handleChange}  formData={formData} style={inputStyle} />
             </div>
           </div>
           <div className="row">
