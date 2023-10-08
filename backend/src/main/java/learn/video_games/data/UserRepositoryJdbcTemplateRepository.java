@@ -59,6 +59,8 @@ public class UserRepositoryJdbcTemplateRepository implements UserRepository {
         user.setUserId(keyHolder.getKey().intValue());
         return user;
     }
+
+
     /*
     @Override
     public boolean update(Agent agent) {

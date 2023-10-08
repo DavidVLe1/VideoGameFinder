@@ -12,4 +12,8 @@ public interface PreferencesRepository {
     boolean add(Preferences preferences);
 
     public List<Preference> queryAll(int userId);
+
+
+    boolean deleteByUser(int userId);
+
 }

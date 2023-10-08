@@ -63,6 +63,7 @@ public class PreferencesService {
             result.addMessage("Preference already exists - cannot be set for `add` operation", ResultType.INVALID);
             return result;
         }
+        repository.deleteByUser(preferences.getUserId());
 
         boolean success = repository.add(preferences);
         if (!success) {

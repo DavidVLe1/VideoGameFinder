@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.PreparedStatement;
 import java.sql.Statement;
@@ -60,6 +61,13 @@ public class PreferencesRepositoryJdbcTemplateRepository implements PreferencesR
         final String sql = "select preference_id, user_id, genre, platform, start_date, end_date, min_score, max_score"
                 + " from preferences where user_id = ?;";
         return jdbcTemplate.query(sql, new PreferenceMapper(), userId);
+    }
+
+
+    @Override
+    @Transactional
+    public boolean deleteByUser(int userId) {
+        return jdbcTemplate.update("delete from preferences where user_id = ?;", userId) > 0;
     }
 
 }
