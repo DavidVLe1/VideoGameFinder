@@ -12,7 +12,6 @@ import Logout from './components/LogOut';
 
 import './App.css';
 import Library from './components/Library';
-import RecommendedGame from './components/Top3Games';
 import Top3Games from './components/Top3Games';
 import DisplayResults from './components/DisplayResults';
 

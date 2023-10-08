@@ -12,8 +12,8 @@ export default function GameForm({ isUserId }) {
     platforms: "",
     startDate: "1958-01-01",
     endDate: "2023-01-01",
-    minNumber: "0",
-    maxNumber: "100"
+    minMetaCritic: 0,
+    maxMetaCritic: 100
   });
   const [hasExistingPreferences, setHasExistingPreferences] = useState(false);
   const navigate = useNavigate();
@@ -183,30 +183,30 @@ export default function GameForm({ isUserId }) {
           </div>
           <div className="row">
             <div className="col-12 col-md-4 mb-3">
-              <label htmlFor="minNumber">Minimum MetaCritic Rating:</label>
+              <label htmlFor="minMetaCritic">Minimum MetaCritic Rating:</label>
               <input
                 type="number"
-                id="minNumber"
-                name="minNumber"
+                id="minMetaCritic"
+                name="minMetaCritic"
                 min="0"
                 max="100"
                 onChange={handleChange}
                 required
-                value={formData.minNumber}
+                value={formData.minMetaCritic}
                 defaultValue={0}
                 style={inputStyle}
               />
             </div>
             <div className="col-12 col-md-4 mb-3">
-              <label htmlFor="maxNumber">Maximum MetaCritic Rating:</label>
+              <label htmlFor="maxMetaCritic">Maximum MetaCritic Rating:</label>
               <input
                 type="number"
-                id="maxNumber"
-                name="maxNumber"
+                id="maxMetaCritic"
+                name="maxMetaCritic"
                 min="0"
                 max="100"
                 onChange={handleChange}
-                value={formData.maxNumber}
+                value={formData.maxMetaCritic}
                 defaultValue={100}
                 required
                 style={inputStyle}
