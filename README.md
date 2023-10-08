@@ -158,7 +158,7 @@ Submit onClick (sends info [POST] to Backend. Returns with Either User <userId> 
 2. Returns Table
 3. Presentation can shift back to the WallPaper
 
-### Configure ###
+### Configure/GameForm ###
 
 1. Game Form with all Options and Save
 2. If you save then it updated [PUT] to the Preferences Table

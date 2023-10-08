@@ -50,11 +50,6 @@ export default function Nav({ isAuthenticated }) {
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link vt323-font" to="/configure">
-                    Configure
-                  </NavLink>
-                </li>
-                <li className="nav-item">
                   <NavLink className="nav-link vt323-font" to="/logout">
                     Logout
                   </NavLink>
