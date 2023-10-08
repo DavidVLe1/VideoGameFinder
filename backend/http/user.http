@@ -6,10 +6,10 @@ Content-Type: application/json
 
 {
     "userId": 0,
-    "firstName": "F",
-    "lastName": "M",
-    "email": "finn@warriors.com",
-    "passwd": "adventure"
+    "firstName": "David",
+    "lastName": "Logan",
+    "email": "greenish@green.com",
+    "passwd": "loganish"
 }
 
 ###

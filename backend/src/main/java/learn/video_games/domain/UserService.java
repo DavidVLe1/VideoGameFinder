@@ -40,7 +40,7 @@ public class UserService {
         Auth toCheckAuth = new Auth();
         toCheckAuth.setEmail(user.getEmail());
         toCheckAuth.setPasswd(user.getPasswd());
-        if (repository.findByAuth(toCheckAuth).equals(user)) {
+        if (repository.findByAuth(toCheckAuth) != null) {
             result.addMessage("user is already in the system", ResultType.INVALID);
         }
 
