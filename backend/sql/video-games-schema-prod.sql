@@ -21,6 +21,19 @@ create table users (
     passwd varchar(200) not null
 );
 
+create table preferences (
+    preference_id int primary key auto_increment,
+    user_id int not null,
+    genre varchar(200),
+    platform varchar(200),
+    start_date date,
+    end_date date,
+    min_score int,
+    max_score int
+);
+
+select * from preferences;
+
 insert into genre(genre_id, genre_name) values
         (4, 'Action'),
         (51, 'Indie'),
