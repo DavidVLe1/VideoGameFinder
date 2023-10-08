@@ -6,7 +6,10 @@ export default function Landing() {
     <div className="homepage">
       <div className="header">
         <header style={{ backgroundColor: "#bb0a21", color: "#D3D4D9", padding: "20px", fontFamily: "Press Start 2P"}}>
-          <h1>Welcome to VideoGameFinder</h1>
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <img src="../logo512.png" alt="Logo" style={{ width: "100px", height: "100px", borderRadius: "100%", marginRight: "20px" }} />
+            <h1>Welcome to VideoGameFinder</h1>
+          </div>
           <p>Discover your next favorite video game</p>
         </header>
       </div>
