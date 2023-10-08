@@ -1,8 +1,10 @@
 package learn.video_games.data;
 
+import learn.video_games.data.mappers.PreferenceMapper;
 import learn.video_games.models.Genre;
 import learn.video_games.models.Platform;
 import learn.video_games.models.Preferences;
+import learn.video_games.models.Preference;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Repository;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 @Repository
 public class PreferencesRepositoryJdbcTemplateRepository implements PreferencesRepository {
@@ -51,4 +54,12 @@ public class PreferencesRepositoryJdbcTemplateRepository implements PreferencesR
         return true;
 
     }
+
+    @Override
+    public List<Preference> queryAll(int userId) {
+        final String sql = "select preference_id, user_id, genre, platform, start_date, end_date, min_score, max_score"
+                + " from preferences where user_id = ?;";
+        return jdbcTemplate.query(sql, new PreferenceMapper(), userId);
+    }
+
 }

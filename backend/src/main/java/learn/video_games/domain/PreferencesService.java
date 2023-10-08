@@ -1,9 +1,11 @@
 package learn.video_games.domain;
 
 import learn.video_games.data.PreferencesRepository;
-import learn.video_games.models.Preferences;
-import learn.video_games.models.User;
+import learn.video_games.models.*;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class PreferencesService {
@@ -11,6 +13,44 @@ public class PreferencesService {
 
     public PreferencesService(PreferencesRepository repository) {
         this.repository = repository;
+    }
+
+    public Preferences queryAll(int userId) {
+
+        List<Preference> preferenceList =  repository.queryAll(userId);
+        if (preferenceList.size() >= 0) {
+
+            Preferences result = new Preferences();
+
+            result.setPreferencesId(0);
+            result.setUserId(preferenceList.get(0).getUserId());
+            result.setStartDate(preferenceList.get(0).getStartDate());
+            result.setEndDate(preferenceList.get(0).getEndDate());
+            result.setMinMetaCritic(preferenceList.get(0).getMinMetaCritic());
+            result.setMaxMetaCritic(preferenceList.get(0).getMaxMetaCritic());
+
+            ArrayList<String> genres = new ArrayList<>();
+            ArrayList<String> platforms = new ArrayList<>();
+
+            for (Preference preference : preferenceList) {
+                if (!genres.contains(preference.getGenre())) {
+                    genres.add(preference.getGenre());
+                }
+                if (!platforms.contains(preference.getPlatform())) {
+                    platforms.add(preference.getPlatform());
+                }
+            }
+
+            result.setGenres(genres);
+            result.setPlatforms(platforms);
+            return result;
+
+        }
+        else {
+            return null;
+        }
+
+
     }
 
     public Result<Preferences> add(Preferences preferences) {

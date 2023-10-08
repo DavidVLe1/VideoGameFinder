@@ -32,7 +32,6 @@ create table preferences (
     max_score int
 );
 
-select * from preferences;
 
 insert into genre(genre_id, genre_name) values
         (4, 'Action'),

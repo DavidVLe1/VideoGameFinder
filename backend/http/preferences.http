@@ -1,18 +1,24 @@
 @url = http://localhost:8080/api/preferences
 ###
 
+
+GET {{url}}/2 HTTP/1.1
+
+###
+
+
 POST {{url}} HTTP/1.1
 Content-Type: application/json
 
 {
-    "preferencesId": 1,
+    "preferencesId": 0,
     "userId": 2,
-    "genres":["Action", "Fantasy"],
-    "platforms": ["PS2", "OS", "PC"],
+    "genres":["Action", "David", "Animation"],
+    "platforms": ["Nintedo", "Logan", "PC", "XBOX"],
     "startDate": "2013-10-21",
     "endDate": "2023-10-07",
     "minMetaCritic": 10,
-    "maxMetaCritic": 1000
+    "maxMetaCritic": 100
 }
 
 ###

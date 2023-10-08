@@ -7,10 +7,10 @@ import java.util.Objects;
 public class Preferences {
     private int preferencesId;
     private int userId;
-    ArrayList<String> genres = new ArrayList<>();
-    ArrayList<String> platforms = new ArrayList<>();
-    LocalDate startDate;
-    LocalDate endDate;
+    private ArrayList<String> genres = new ArrayList<>();
+    private ArrayList<String> platforms = new ArrayList<>();
+    private LocalDate startDate;
+    private LocalDate endDate;
     int minMetaCritic;
     int maxMetaCritic;
 
