@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../App.css"
 
-export default function SignIn({handleAuthentication, isAuthenticated}) {
+export default function SignIn({handleAuthentication, isAuthenticated, handleUserId}) {
   const [signInFormData, setSignInFormData] = useState({
     email: "",
     passwd: ""
@@ -32,7 +32,9 @@ export default function SignIn({handleAuthentication, isAuthenticated}) {
         // Sign-in was successful
         const responseData = await response.json();
         console.log("Sign-in Successful", responseData);
+        const { userId } = responseData;
         handleAuthentication(true);
+        handleUserId(userId);
         //now i need to do something with the userId...
         // Navigate to the "/profile" route and pass responseData as state
         // navigate("/profile", { state: responseData });

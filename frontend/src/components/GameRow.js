@@ -26,7 +26,7 @@ function GameRow({game}){
                 {esrbRating}
             </td>
             <td>
-                <img src={game.background_image} alt={game.name}></img>
+            <img src={game.background_image} alt={game.name} style={{ width: '500px', height: '250px' }}></img>
             </td>
         </tr>
     )

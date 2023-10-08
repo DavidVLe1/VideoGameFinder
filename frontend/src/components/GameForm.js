@@ -20,12 +20,22 @@ export default function GameForm({ isUserId }) {
 
   function handleChange(event) {
     const { name, value, options } = event.target;
-    const selectedOptions = [...options].filter((option) => option.selected).map((option) => option.value);
   
-    // For multiple selections, use an array to store the selected values
-    const updatedFormData = { ...formData, [name]: selectedOptions };
-    setFormData(updatedFormData);
-    console.log(updatedFormData);
+    // Check if the target element is a select element
+    if (event.target.tagName === "SELECT") {
+      const selectedOptions = Array.from(options)
+        .filter((option) => option.selected)
+        .map((option) => option.value);
+  
+      const updatedFormData = { ...formData, [name]: selectedOptions };
+      setFormData(updatedFormData);
+      console.log(updatedFormData);
+    } else {
+      // Handle other input elements (e.g., text inputs)
+      const updatedFormData = { ...formData, [name]: value };
+      setFormData(updatedFormData);
+      console.log(updatedFormData);
+    }
   }
 
   const handleFormSubmit = (event) => {
@@ -34,31 +44,56 @@ export default function GameForm({ isUserId }) {
     navigate("/results", { state: { formData } });
   };
 
-  useEffect(() => {
-    fetchExistingPreferences();
-  }, []);
+  // useEffect(() => { most likely not need it
+  //   fetchExistingPreferences();
+  // }, []);
 
-  const fetchExistingPreferences = async () => {
+  // const fetchExistingPreferences = async () => {
+  //   try {
+  //     const response = await fetch(`http://localhost:8080/api/user/${isUserId}`, {
+  //       method: "GET",
+  //     });
+
+  //     if (response.ok) {
+  //       const existingPreferences = await response.json();
+  //       // Populated  form fields with existing preferences
+  //       setFormData(existingPreferences);
+  //     } else {
+  //       console.error("Error fetching existing preferences:", response.statusText);
+  //     }
+  //   } catch (error) {
+  //     console.error("An error occurred:", error);
+  //   }
+  // };
+
+  const handleSave = async () => {
+    console.log(formData);
     try {
-      const response = await fetch(`http://localhost:8080/api/preferences/${isUserId}`, {
-        method: "GET",
-      });
 
-      if (response.ok) {
-        const existingPreferences = await response.json();
-        // Populated  form fields with existing preferences
-        setFormData(existingPreferences);
-      } else {
-        console.error("Error fetching existing preferences:", response.statusText);
-      }
+
+  
+        // User does not have preferences, create them with a POST request
+        const createResponse = await fetch(`http://localhost:8080/api/preferences`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+
+        if (createResponse.ok) {
+          console.log("Preferences created successfully");
+          setHasExistingPreferences(true); // Set the flag to true after creating preferences
+        } else {
+          console.error("Error creating preferences:", createResponse.statusText);
+        }
+      // }
     } catch (error) {
       console.error("An error occurred:", error);
     }
   };
 
-  const handleSave = async () => {
-    try {
-      if (hasExistingPreferences) {
+  const handleUpdate= async ()=>{
         // User has preferences, update them with a PUT request
         const updateResponse = await fetch(`http://localhost:8080/api/preferences/${isUserId}`, {
           method: "PUT",
@@ -73,39 +108,7 @@ export default function GameForm({ isUserId }) {
         } else {
           console.error("Error updating preferences:", updateResponse.statusText);
         }
-      } else {
-        // User does not have preferences, create them with a POST request
-        const createResponse = await fetch(`http://localhost:8080/api/preferences}`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        });
-
-        if (createResponse.ok) {
-          console.log("Preferences created successfully");
-          setHasExistingPreferences(true); // Set the flag to true after creating preferences
-        } else {
-          console.error("Error creating preferences:", createResponse.statusText);
-        }
-      }
-    } catch (error) {
-      console.error("An error occurred:", error);
-    }
-  };
-
-  // Conditionally render Save button based on userId
-  const renderSaveButton = () => {
-    if (isUserId === 0) {
-      return null; // Don't render button for guests with id 0
-    }
-    return (
-      <button type="button" className="btn btn-success" onClick={handleSave}>
-        Save
-      </button>
-    );
-  };
+  }
 
 
   const containerStyle = {
@@ -151,10 +154,10 @@ export default function GameForm({ isUserId }) {
           <h2 style={{ textAlign: "center", fontFamily: "'Press Start 2P', sans-serif" }}>Game Preferences</h2>
           <div className="row">
             <div className="col-12 col-md-8 mb-3">
-              <GenreList handleChange={handleChange}  formData={formData} style={inputStyle} />
+              <GenreList handleChange={handleChange} formData={formData} style={inputStyle} />
             </div>
             <div className="col-12 col-md-8 mb-3">
-              <PlatformList handleChange={handleChange}  formData={formData} style={inputStyle} />
+              <PlatformList handleChange={handleChange} formData={formData} style={inputStyle} />
             </div>
           </div>
           <div className="row">
@@ -216,7 +219,10 @@ export default function GameForm({ isUserId }) {
           <button type="submit" className="btn btn-primary" style={buttonStyle}>
             Submit
           </button>
-          {renderSaveButton}
+          <button type="button" className="btn btn-success" onClick={handleSave}>
+            Save
+          </button>
+          {/* <button type='button' className="btn btn-secondary" onClick={handleUpdate}>Update</button> */}
         </form>
       </div>
     </div>

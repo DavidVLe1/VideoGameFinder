@@ -38,9 +38,10 @@ export default function SignUp({handleAuthentication,handleUserId,isUserId }) {
         console.log(responseData);
         const { userId } = responseData; // Extract userId from the response
         handleAuthentication(true);
+        handleUserId(userId);
+        console.log("isUserId: "+isUserId);
         console.log("Registration Successful");
         setSignUpFormData({ ...signUpFormData, userId });
-        handleUserId(userId);
         navigate("/preferences" )
       } else {
         const errorData = await response.json();

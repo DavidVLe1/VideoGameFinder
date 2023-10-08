@@ -29,7 +29,7 @@ function App() {
       <Header isAuthenticated={isAuthenticated} />
       <Routes>
         <Route path='/' element={<Landing />}></Route>
-        <Route path='/signin' element={<SignIn handleAuthentication={handleAuthentication} isAuthenticated={isAuthenticated} isUserId={isUserId}/>}></Route>
+        <Route path='/signin' element={<SignIn handleAuthentication={handleAuthentication} isAuthenticated={isAuthenticated} handleUserId={handleUserId} isUserId={isUserId}/>}></Route>
         <Route path='/signup' element={<SignUp  handleAuthentication={handleAuthentication} isUserId={isUserId} handleUserId={handleUserId}/>}></Route>
         <Route path='/results' element={<GameList />}></Route>
         <Route path='/profile' element={<Profile />}></Route>
