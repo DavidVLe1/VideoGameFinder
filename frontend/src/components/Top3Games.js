@@ -14,17 +14,24 @@ export default function Top3Games({ gamesData }) {
       }
       const selectedGames = randomIndices.map((index) => gamesData[index]);
       setRandomGames(selectedGames);
+    } else {
+      // handles case when no games
+      setRandomGames([]);
     }
   }, [gamesData]);
 
   return (
     <div>
       <h2>Top 3 Random Games</h2>
-      <ul>
-        {randomGames.map((game, index) => (
-          <li key={index}>{game.name}</li>
-        ))}
-      </ul>
+      {randomGames.length > 0 ? (
+        <ul>
+          {randomGames.map((game, index) => (
+            <li key={index}>{game.name}</li>
+          ))}
+        </ul>
+      ) : (
+        <p>Sorry, no games to recommend based on your preferences.</p>
+      )}
     </div>
   );
 }
