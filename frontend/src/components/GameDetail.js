@@ -59,6 +59,7 @@ function GameDetail() {
 
   const backgroundColorStyles = {
     backgroundColor: '#B5C689',
+    padding: '20px',
 
   }
 
@@ -68,7 +69,7 @@ function GameDetail() {
       <p style={largerTextStyles}>Release Date: {formattedReleaseDate}</p>
       <p style={largerTextStyles}>Rating: {gameDetails.rating}/5</p>
       <p style={largerTextStyles}>Metacritic Score: {gameDetails.metacritic}/100</p>
-      <p style={largerTextStyles}>Playtime: {gameDetails.playtime} hours</p>
+      <p style={largerTextStyles}>Average Playtime: {gameDetails.playtime} hours</p>
       <div>
         <h2>Platforms</h2>
         <ul>

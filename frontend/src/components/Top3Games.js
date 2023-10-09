@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import "../App.css"
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import "../App.css";
 
 export default function Top3Games({ gamesData }) {
   const [randomGames, setRandomGames] = useState([]);
@@ -28,11 +29,11 @@ export default function Top3Games({ gamesData }) {
     width: "300px",
     height: "534px",
     borderRadius: "10px",
-    margin: "0 10px", 
+    margin: "0 10px",
     display: "flex",
     flexDirection: "column",
-    alignItems: "center", 
-    justifyContent: "flex-end", 
+    alignItems: "center",
+    justifyContent: "flex-end",
     backgroundColor: "#222",
   };
 
@@ -62,7 +63,7 @@ export default function Top3Games({ gamesData }) {
           textAlign: "center",
           fontFamily: "'Press Start 2P', sans-serif",
           color: "white",
-          backgroundColor: "black"
+          backgroundColor: "black",
         }}
       >
         Three Game Recommendations
@@ -70,18 +71,20 @@ export default function Top3Games({ gamesData }) {
       {randomGames.length > 0 ? (
         <div style={{ display: "flex", justifyContent: "center" }}>
           {randomGames.map((game, index) => (
-            <div style={cardStyle} key={index}>
-              <div className="game-card-image">
-                <img
-                  src={game.background_image}
-                  alt={game.name}
-                  style={imageStyle}
-                />
+            <Link to={`/game/${game.id}`} key={index}>
+              <div style={cardStyle}>
+                <div className="game-card-image">
+                  <img
+                    src={game.background_image}
+                    alt={game.name}
+                    style={imageStyle}
+                  />
+                </div>
+                <div style={overlayStyle}>
+                  <p>{game.name}</p>
+                </div>
               </div>
-              <div style={overlayStyle}>
-                <p>{game.name}</p>
-              </div>
-            </div>
+            </Link>
           ))}
         </div>
       ) : (
