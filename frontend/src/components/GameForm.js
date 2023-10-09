@@ -213,7 +213,7 @@ export default function GameForm({ isUserId }) {
               />
             </div>
           </div>
-          <button type="submit" className="btn btn-primary" style={buttonStyle}>
+          <button type="submit" className="btn btn-primary mr-2" style={buttonStyle}>
             Submit
           </button>
           <button type="button" className="btn btn-success" onClick={handleSave}>
