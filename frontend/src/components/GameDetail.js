@@ -16,12 +16,9 @@ function GameDetail() {
       });
   }, [id]);
 
-  const fetchGameDetails = async (id, genres, platforms) => {
+  const fetchGameDetails = async (id) => {
     try {
-      const genreQuery = genres ? `&genres=${genres}` : '';
-      const platformQuery = platforms ? `&platforms=${platforms}` : '';
-  
-      const response = await fetch(`https://api.rawg.io/api/games/${id}?key=b3133a4f682a42a2925438e5efd0f900${genreQuery}${platformQuery}`);
+      const response = await fetch(`https://api.rawg.io/api/games/${id}?key=b3133a4f682a42a2925438e5efd0f900`);
       
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -34,17 +31,16 @@ function GameDetail() {
     }
   };
 
-
   if (gameDetails === null) {
     return <div>Loading...</div>;
   }
 
   return (
     <div>
-    <h1 style={{ textAlign: "center", fontFamily: "'Press Start 2P', sans-serif" }}>{gameDetails.name}</h1>
-      <p>Release Date: {gameDetails.releaseDate}</p>
-      <p>Genre: {gameDetails.genre}</p>
-      <p>Platform: {gameDetails.platform}</p>
+      <h1 style={{ textAlign: "center", fontFamily: "'Press Start 2P', sans-serif" }}>{gameDetails.name}</h1>
+      <p>Release Date: {gameDetails.released}</p>
+      <p>Genres: {gameDetails.genres.map(genre => genre.name).join(', ')}</p>
+      <p>Platforms: {gameDetails.platforms.map(platform => platform.platform.name).join(', ')}</p>
     </div>
   );
 }
