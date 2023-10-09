@@ -117,4 +117,15 @@ body {
   background-image: url('./MAAAARIO.jpg');
   background-size: 100%;
   background-repeat: no-repeat;
-}
+} 
+
+.log-out-background {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 94vh;
+  background-image: url('./DRARK SOOULS.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+} 
