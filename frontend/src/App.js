@@ -6,9 +6,11 @@ import Landing from "./components/Landing";
 import SignIn from "./components/SignIn";
 import ErrorPage from "./components/ErrorPage";
 import SignUp from "./components/SignUp";
+import GameDetail from "./components/GameDetail"
 import Profile from "./components/Profile";
 import { useState } from 'react';
 import Logout from './components/LogOut';
+
 
 import './App.css';
 import Library from './components/Library';
@@ -45,6 +47,7 @@ function App() {
         <Route path='/preferences' element={<GameForm isUserId={isUserId} />}></Route>
         <Route path='/logout' element={<Logout handleAuthentication={handleAuthentication} handleGamesData={handleGamesData}/>}></Route>
         <Route path='/recommend' element={<Top3Games gamesData={gamesData}/>}></Route>
+        <Route path="/game/:id" element={<GameDetail />} />
         <Route path="/displayResults" element={<DisplayResults gamesData={gamesData}/>}></Route>
         <Route path='/*' element={<ErrorPage />}></Route>
       </Routes>

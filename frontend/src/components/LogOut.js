@@ -34,20 +34,6 @@ export default function Logout({ handleAuthentication, handleGamesData }) {
     marginBottom: "15px",
   };
 
-  const labelStyle = {
-    display: "block",
-    marginBottom: "5px",
-    fontWeight: "bold",
-  };
-
-  const inputStyle = {
-    width: "100%",
-    padding: "10px",
-    marginBottom: "15px",
-    borderRadius: "5px",
-    border: "1px solid #ccc",
-  };
-
   const buttonContainerStyle = {
     display: "flex",
     justifyContent: "space-between",
