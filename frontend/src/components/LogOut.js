@@ -15,7 +15,7 @@ export default function Logout({ handleAuthentication, handleGamesData }) {
   };
 
   const containerStyle = {
-    backgroundColor: "rgba(255, 255, 255, 0.7)", // Reduced opacity to make it more transparent
+    backgroundColor: "rgba(255, 255, 255, 0.7)",
     padding: "20px",
     borderRadius: "20px",
     boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.2)",
@@ -23,11 +23,15 @@ export default function Logout({ handleAuthentication, handleGamesData }) {
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    width: "80%", // You can adjust the width as needed
-    maxWidth: "800px", // You can adjust the maximum width as needed
+    width: "80%",
+    maxWidth: "800px",
     margin: "auto",
     minHeight: "50vh",
     marginTop: "20vh",
+  };
+
+  const textContainerStyle = {
+    marginBottom: "15px",
   };
 
   const labelStyle = {
@@ -37,34 +41,46 @@ export default function Logout({ handleAuthentication, handleGamesData }) {
   };
 
   const inputStyle = {
-    width: "100%", // Make the text box wider
+    width: "100%",
     padding: "10px",
     marginBottom: "15px",
     borderRadius: "5px",
     border: "1px solid #ccc",
   };
 
+  const buttonContainerStyle = {
+    display: "flex",
+    justifyContent: "space-between",
+    width: "100%", 
+  };
+
   const buttonStyle = {
+    flex: 1, 
     backgroundColor: "#007bff",
     color: "#fff",
     padding: "10px 20px",
     borderRadius: "5px",
     border: "none",
     cursor: "pointer",
+    margin: "0 5px",
   };
 
   return (
     <div className="log-out-background">
       <div style={containerStyle}>
-        <h2 style={{ textAlign: "center", fontFamily: "'Press Start 2P', sans-serif" }}>
-          Are you sure you want to log out?
-        </h2>
-        <button style={buttonStyle} onClick={handleLogout}>
-          Logout
-        </button>
-        <button style={buttonStyle} onClick={handleCancel}>
-          Cancel
-        </button>
+        <div style={textContainerStyle}>
+          <h2 style={{ textAlign: "center", fontFamily: "'Press Start 2P', sans-serif" }}>
+            Are you sure you want to log out?
+          </h2>
+        </div>
+        <div style={buttonContainerStyle}>
+          <button style={buttonStyle} onClick={handleLogout}>
+            Logout
+          </button>
+          <button style={buttonStyle} onClick={handleCancel}>
+            Cancel
+          </button>
+        </div>
       </div>
     </div>
   );
