@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "../Library.css"
 
 export default function Top3Games({ gamesData }) {
   const [randomGames, setRandomGames] = useState([]);
@@ -22,13 +23,20 @@ export default function Top3Games({ gamesData }) {
 
   return (
     <div>
-      <h2>Top 3 Random Games</h2>
+      <h1 style={{ textAlign: "center", fontFamily: "'Press Start 2P', sans-serif"}}>Top Three Recommendations</h1>
       {randomGames.length > 0 ? (
-        <ul>
+        <div className="game-cards-container">
           {randomGames.map((game, index) => (
-            <li key={index}>{game.name}</li>
+            <div className="game-card" key={index}>
+              <div className="game-card-image">
+                <img src={game.background_image} alt={game.name} />
+              </div>
+              <div className="game-card-details">
+                <h2>{game.name}</h2>
+              </div>
+            </div>
           ))}
-        </ul>
+        </div>
       ) : (
         <p>Sorry, no games to recommend based on your preferences.</p>
       )}
