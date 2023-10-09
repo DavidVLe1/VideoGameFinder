@@ -15,7 +15,7 @@ export default function Landing() {
       </div>
       <section className="cta-section" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", backgroundColor: "#2e282a", padding: "40px 20px" }}>
         <div className="cta-content" style={{ flex: 1 }}>
-        <Link to="/profile" style={{ color: "#D3D4D9"}}>
+        <Link to="/library" style={{ color: "#D3D4D9"}}>
             <h2>Track Your Games</h2>
           </Link>
           <p style={{ color: "#D3D4D9" }}>
