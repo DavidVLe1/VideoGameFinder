@@ -42,7 +42,7 @@ export default function GameList({gamesData, handleGamesData}) {//{ preferences 
         if (formData.platforms) {
             queryParams += `&platforms=${formData.platforms}`;
         }
-
+        queryParams+="&page_size=100";
         return queryParams;
     }
 
