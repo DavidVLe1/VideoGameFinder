@@ -1,31 +1,40 @@
+/* Library.css */
+
+/* Container for the game cards */
 .library-container {
     text-align: center;
     padding: 20px;
-  }
-
+    background-color: #333; /* Dark grey background color */
+    color: white; 
+}
+  
+  /* Game card grid container */
   .game-cards-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 
-    gap: 20px; 
+    grid-template-columns: repeat(auto-fill, minmax(187.5px, 1fr)); /* Adjust column width for 8 cards per row */
+    gap: 20px; /* Adjust the gap between cards */
   }
-
+  
+  /* Game card */
   .game-card {
     position: relative;
     overflow: hidden;
     cursor: pointer;
     transition: transform 0.2s ease-in-out;
-    width: 150px;
-    height: 267px;
-    border-radius: 10px;
+    width: 187.5px; /* Increase the width for larger cards */
+    height: 334px; /* 9:16 aspect ratio (16 / 9 * 187.5px) */
+    border-radius: 10px; /* Rounded corners */
   }
   
+  /* Game card image */
   .game-card img {
-    width: 150px;
-    height: 267px;
-    object-fit: cover;
+    width: 187.5px;
+    height: 334px;
+    object-fit: cover; /* Crop and zoom to fill the card */
     transition: opacity 0.2s ease-in-out;
   }
   
+  /* Game name overlay */
   .game-card .game-name-overlay {
     position: absolute;
     top: 0;
@@ -41,12 +50,14 @@
     transition: opacity 0.2s ease-in-out;
     border-radius: 10px;
   }
-
+  
+  /* Larger text inside the game name overlay */
   .game-card .game-name-overlay p {
-    font-size: 1.7rem; 
+    font-size: 2.4rem;
     margin: 0;
   }
   
+  /* Show game name overlay on hover */
   .game-card:hover .game-name-overlay {
     opacity: 1;
     transition: opacity 0.2s ease-in-out;
