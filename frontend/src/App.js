@@ -7,7 +7,6 @@ import SignIn from "./components/SignIn";
 import ErrorPage from "./components/ErrorPage";
 import SignUp from "./components/SignUp";
 import GameDetail from "./components/GameDetail"
-import Profile from "./components/Profile";
 import { useState } from 'react';
 import Logout from './components/LogOut';
 
@@ -42,7 +41,6 @@ function App() {
         <Route path='/signin' element={<SignIn handleAuthentication={handleAuthentication} isAuthenticated={isAuthenticated} handleUserId={handleUserId} isUserId={isUserId}/>}></Route>
         <Route path='/signup' element={<SignUp  handleAuthentication={handleAuthentication} isUserId={isUserId} handleUserId={handleUserId}/>}></Route>
         <Route path='/results' element={<GameList gamesData={gamesData} handleGamesData={handleGamesData}/>}></Route>
-        <Route path='/profile' element={<Profile />}></Route>
         <Route path='/library' element={<Library gamesData={gamesData} handleGamesData={handleGamesData} />}></Route>
         <Route path='/preferences' element={<GameForm isUserId={isUserId} />}></Route>
         <Route path='/logout' element={<Logout handleAuthentication={handleAuthentication} handleGamesData={handleGamesData}/>}></Route>
