@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../Library.css"
+import "../App.css"
 
 export default function Top3Games({ gamesData }) {
   const [randomGames, setRandomGames] = useState([]);
@@ -21,18 +21,65 @@ export default function Top3Games({ gamesData }) {
     }
   }, [gamesData]);
 
+  const cardStyle = {
+    position: "relative",
+    overflow: "hidden",
+    cursor: "pointer",
+    width: "300px",
+    height: "534px",
+    borderRadius: "10px",
+    margin: "0 10px", 
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center", 
+    justifyContent: "flex-end", 
+    backgroundColor: "#222",
+  };
+
+  const imageStyle = {
+    width: "300px",
+    height: "534px",
+    objectFit: "cover",
+  };
+
+  const overlayStyle = {
+    background: "rgba(0, 0, 0, 0.7)",
+    color: "white",
+    padding: "8px",
+    borderRadius: "0 0 10px 10px",
+    width: "100%",
+    textAlign: "center",
+    fontSize: "1.7rem",
+    position: "absolute",
+    bottom: "0",
+    left: "0",
+  };
+
   return (
-    <div>
-      <h1 style={{ textAlign: "center", fontFamily: "'Press Start 2P', sans-serif"}}>Top Three Recommendations</h1>
+    <div className="top-3-background-container">
+      <h1
+        style={{
+          textAlign: "center",
+          fontFamily: "'Press Start 2P', sans-serif",
+          color: "white",
+          backgroundColor: "black"
+        }}
+      >
+        Three Game Recommendations
+      </h1>
       {randomGames.length > 0 ? (
-        <div className="game-cards-container">
+        <div style={{ display: "flex", justifyContent: "center" }}>
           {randomGames.map((game, index) => (
-            <div className="game-card" key={index}>
+            <div style={cardStyle} key={index}>
               <div className="game-card-image">
-                <img src={game.background_image} alt={game.name} />
+                <img
+                  src={game.background_image}
+                  alt={game.name}
+                  style={imageStyle}
+                />
               </div>
-              <div className="game-card-details">
-                <h2>{game.name}</h2>
+              <div style={overlayStyle}>
+                <p>{game.name}</p>
               </div>
             </div>
           ))}

@@ -1,10 +1,11 @@
 .library-container {
-    text-align: center;
-    padding: 20px;
-    background-color: #333; 
+    text-align: center; 
     color: white; 
+    background-image: url('./MINECWAFT.jpg');
+    background-size: 100%;
+    background-repeat: repeat;
+    background-position: center bottom;
 }
-  
   .game-cards-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(187.5px, 1fr)); 

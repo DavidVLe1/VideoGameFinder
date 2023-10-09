@@ -4,7 +4,7 @@ import '../Library.css';
 function Library({ gamesData }) {
   return (
     <div className="library-container">
-      <h1 style={{ textAlign: "center", fontFamily: "'Press Start 2P', sans-serif"}}>Library Component</h1>
+      <h1 style={{ backgroundColor: "black", textAlign: "center", fontFamily: "'Press Start 2P', sans-serif"}}>Your Library</h1>
       <div className="game-cards-container">
         {gamesData.map((game, index) => (
           <div className="game-card" key={index}>
